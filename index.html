@@ -115,7 +115,7 @@
             </div>
         </div>
 
-        <h2>Proxy configuration (ExpressJS app)</h2>
+        <h2>API Gateway proxy configuration (e.g. ExpressJS app)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
             <div></div>
             <div class="terminal">
@@ -228,7 +228,7 @@
                 <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
                 <p class="text-yellow">......</p>
                 <p>Serverless: <span class="text-yellow">Operation failed!</span></p>
-                <p>Serverless: <span class="text-yellow">View the full error output: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn%3Aaws%3Acloudformation%3Aus-east-1%3A416566615250%3Astack%2Fsls-demo-api-dev%2F26eca400-e881-11eb-8b2d-0edef5a02865</span></p>
+                <p>Serverless: <span class="text-yellow">View the full error output: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn%3Aaws%3Acloudformation%3Aus-east-1%3A416566615250%3Astack%2Fmyapp-dev%2F26eca400-e881-11eb-8b2d-0edef5a02865</span></p>
                 <p>&nbsp;</p>
                 <p class="text-yellow">&nbsp;Serverless Error ----------------------------------------</p>
                 <p>&nbsp;</p>
@@ -278,6 +278,142 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                     <p>&nbsp;</p>
                     <p>View the full error: https://slss.io/d/g8hd13e4</p>
                 </div>
+            </div>
+        </div>
+
+        <h2>Non-interactive deployment (no TTY, e.g. CI/CD)</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p class="text-yellow">............................................</p>
+                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+
+            <div class="terminal">
+                <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p>Packaging</p>
+                <p>Uploading deployment artifacts (222 KB)</p>
+                <p>Validating CloudFormation template</p>
+                <p>CloudFormation stack updating</p>
+                <p>Service deployed to stack myapp-dev <span class="text-gray">(31s)</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-gray">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+        </div>
+
+        <h2>Verbose deployment (<code class="text-lg">serverless deploy --verbose</code>)</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p>CloudFormation - <span class="text-yellow">UPDATE_IN_PROGRESS</span> - AWS::CloudFormation::Stack - myapp-dev</p>
+                <p>CloudFormation - <span class="text-yellow">UPDATE_IN_PROGRESS</span> - AWS::Lambda::Function - HelloLambdaFunction</p>
+                <p>CloudFormation - <span class="text-green">UPDATE_COMPLETE</span> - AWS::Lambda::Function - HelloLambdaFunction</p>
+                <p>CloudFormation - <span class="text-yellow">CREATE_IN_PROGRESS</span> - AWS::Lambda::Version - HelloLambdaVersionxo7mVIrb5qrFjIjhs7GmYITXR7zJ5sH0JkO8kC2tb4s</p>
+                <p>CloudFormation - <span class="text-yellow">CREATE_IN_PROGRESS</span> - AWS::Lambda::Version - HelloLambdaVersionxo7mVIrb5qrFjIjhs7GmYITXR7zJ5sH0JkO8kC2tb4s</p>
+                <p>CloudFormation - <span class="text-green">CREATE_COMPLETE</span> - AWS::Lambda::Version - HelloLambdaVersionxo7mVIrb5qrFjIjhs7GmYITXR7zJ5sH0JkO8kC2tb4s</p>
+                <p>CloudFormation - <span class="text-yellow">UPDATE_COMPLETE_CLEANUP_IN_PROGRESS</span> - AWS::CloudFormation::Stack - myapp-dev</p>
+                <p>CloudFormation - DELETE_SKIPPED - AWS::Lambda::Version - HelloLambdaVersion8XeTw8dmeCepXt2KSltXLxzAn2z8aH4w7yi4yX9Aq4</p>
+                <p>CloudFormation - <span class="text-green">UPDATE_COMPLETE</span> - AWS::CloudFormation::Stack - myapp-dev</p>
+                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Stack Outputs</p>
+                <p><span class="text-yellow">HelloLambdaFunctionQualifiedArn:</span> arn:aws:lambda:us-east-1:416566615250:function:myapp-dev-hello:5</p>
+                <p><span class="text-yellow">HttpApiId:</span> wd6m3kwta5</p>
+                <p><span class="text-yellow">ServerlessDeploymentBucketName:</span> myapp-dev-serverlessdeploymentbucket-18gm15gzf8306</p>
+                <p><span class="text-yellow">HttpApiUrl:</span> https://wd6m3kwta5.execute-api.us-east-1.amazonaws.com</p>
+                <p>&nbsp;</p>
+                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+
+            <div class="terminal">
+                <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p>Packaging</p>
+                <p>Uploading deployment artifacts (222 KB)</p>
+                <p>Validating CloudFormation template</p>
+                <p>CloudFormation stack updating</p>
+                <div class="text-gray">
+                <p>&nbsp; UPDATE_IN_PROGRESS - AWS::CloudFormation::Stack - myapp-dev</p>
+                <p>&nbsp; UPDATE_IN_PROGRESS - AWS::Lambda::Function - HelloLambdaFunction</p>
+                <p>&nbsp; UPDATE_COMPLETE - AWS::Lambda::Function - HelloLambdaFunction</p>
+                <p>&nbsp; CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionxo7mVIrb5qrFjIjhs7GmYITXR7zJ5sH0JkO8kC2tb4s</p>
+                <p>&nbsp; CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionxo7mVIrb5qrFjIjhs7GmYITXR7zJ5sH0JkO8kC2tb4s</p>
+                <p>&nbsp; CREATE_COMPLETE - AWS::Lambda::Version - HelloLambdaVersionxo7mVIrb5qrFjIjhs7GmYITXR7zJ5sH0JkO8kC2tb4s</p>
+                <p>&nbsp; UPDATE_COMPLETE_CLEANUP_IN_PROGRESS - AWS::CloudFormation::Stack - myapp-dev</p>
+                <p>&nbsp; DELETE_SKIPPED - AWS::Lambda::Version - HelloLambdaVersion8XeTw8dmeCepXt2KSltXLxzAn2z8aH4w7yi4yX9Aq4</p>
+                <p>&nbsp; UPDATE_COMPLETE - AWS::CloudFormation::Stack - myapp-dev</p>
+                </div>
+                <p>Service deployed to stack myapp-dev <span class="text-gray">(31s)</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-gray">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Stack outputs:</p>
+                <p>&nbsp; HelloLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:416566615250:function:myapp-dev-hello:5</p>
+                <p>&nbsp; HttpApiId: wd6m3kwta5</p>
+                <p>&nbsp; ServerlessDeploymentBucketName: myapp-dev-serverlessdeploymentbucket-18gm15gzf8306</p>
+                <p>&nbsp; HttpApiUrl: https://wd6m3kwta5.execute-api.us-east-1.amazonaws.com</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
             </div>
         </div>
 
