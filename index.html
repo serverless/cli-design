@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="styles.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="bg-black text-red none xl:block shadow-lg">
+        <div class="container mx-auto px-3 py-6 grid grid-cols-2 text-center font-bold text-sm uppercase leading-tight">
+            <h1>current</h1>
+            <h1>target</h1>
+        </div>
+    </div>
+
+    <div id="app" class="container mx-auto px-3 my-16">
+
+        <h2>Successful deployment</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p class="text-yellow">............................................</p>
+                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+
+            <div class="terminal">
+                <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p>
+                    <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
+                </p>
+                <p>&nbsp;</p>
+                <p class="text-gray">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-gray">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+        </div>
+
+        <h2>Ongoing deployment</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p class="text-yellow">............<span v-for="i in second">.</span></p>
+            </div>
+
+            <div class="terminal">
+                <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p>
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    <span v-if="step === 0">Packaging</span>
+                    <span v-if="step === 1">Uploading deployment artifacts (222 KB)</span>
+                    <span v-if="step === 2">Validating CloudFormation template</span>
+                    <span v-if="step === 3">CloudFormation stack updating <span class="text-gray">(1/9)</span></span>
+                    <span v-if="step === 4">CloudFormation stack updating <span class="text-gray">(3/9)</span></span>
+                    <span v-if="step === 5">CloudFormation stack updating <span class="text-gray">(6/9)</span></span>
+                    <span class="text-gray">({{ 20 + second }}s)</span>
+                </p>
+            </div>
+        </div>
+
+        <h2>Deploying with Dashboard</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div></div>
+            <div class="terminal">
+                <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p>
+                    <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
+                </p>
+                <p>&nbsp;</p>
+                <p><span class="text-gray">dashboard:</span> https://slss.io/d/g8hd13e4</p>
+                <p class="text-gray">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-gray">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+            </div>
+        </div>
+
+        <h2>Proxy configuration (ExpressJS app)</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div></div>
+            <div class="terminal">
+                <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p>
+                    <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
+                </p>
+                <p>&nbsp;</p>
+                <p class="text-gray">functions:</p>
+                <p class="ml-5">web: myapp-dev-web</p>
+                <p><span class="text-gray">endpoint:</span> https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+        </div>
+
+        <h2>Deprecations</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p class="text-yellow">............................................</p>
+                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
+                <p>Serverless: <span class="text-orange font-bold">Deprecation warnings:</span></p>
+                <p>&nbsp;</p>
+                <p class="text-orange font-bold">Detected ".env" files. In the next major release variables from ".env" files will be automatically loaded into the serverless build process. Set "useDotenv: true" to adopt that behavior now.</p>
+                <p class="text-orange">More Info: https://www.serverless.com/framework/docs/deprecations/#LOAD_VARIABLES_FROM_ENV_FILES</p>
+                <p>&nbsp;</p>
+                <p class="text-orange font-bold">Support for "package.include" and "package.exclude" will be removed with next major release. Please use "package.patterns" instead</p>
+                <p class="text-orange">More Info: https://www.serverless.com/framework/docs/deprecations/#NEW_PACKAGE_PATTERNS</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+            <div>
+                <div class="terminal">
+                    <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                    <p>&nbsp;</p>
+                    <p>
+                        <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
+                    </p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">functions:</p>
+                    <p class="ml-5">publisher: myapp-dev-publisher</p>
+                    <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                    <p class="text-gray">endpoints:</p>
+                    <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">2 deprecations found: run the same command with '--debug' for more details</p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+                </div>
+                <div class="terminal">
+                    <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                    <p>&nbsp;</p>
+                    <p>
+                        <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
+                    </p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">functions:</p>
+                    <p class="ml-5">publisher: myapp-dev-publisher</p>
+                    <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                    <p class="text-gray">endpoints:</p>
+                    <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                    <p>&nbsp;</p>
+                    <p>2 deprecations found:</p>
+                    <p class="text-gray ml-5">Detected ".env" files. In the next major release variables from ".env" files will be automatically loaded into the serverless build process. Set "useDotenv: true" to adopt that behavior now.</p>
+                    <p class="text-gray ml-5">More Info: https://www.serverless.com/framework/docs/deprecations/#LOAD_VARIABLES_FROM_ENV_FILES</p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray ml-5">Support for "package.include" and "package.exclude" will be removed with next major release. Please use "package.patterns" instead</p>
+                    <p class="text-gray ml-5">More Info: https://www.serverless.com/framework/docs/deprecations/#NEW_PACKAGE_PATTERNS</p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Error</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p class="text-yellow">......</p>
+                <p>Serverless: <span class="text-yellow">Operation failed!</span></p>
+                <p>Serverless: <span class="text-yellow">View the full error output: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn%3Aaws%3Acloudformation%3Aus-east-1%3A416566615250%3Astack%2Fsls-demo-api-dev%2F26eca400-e881-11eb-8b2d-0edef5a02865</span></p>
+                <p>&nbsp;</p>
+                <p class="text-yellow">&nbsp;Serverless Error ----------------------------------------</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;&nbsp;An error occurred: HelloLambdaFunction - Resource handler returned message: "Value nodejs12.xa at 'runtime' failed to satisfy constraint: Member must satisfy enum value set: [nodejs12.x, python3.6, provided, nodejs14.x, ruby2.7, java11, go1.x, provided.al2, java8, java8.al2, dotnetcore3.1, python3.7, python3.8] or be a valid ARN</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow ml-5">Get Support --------------------------------------------</p>
+                <p class="ml-10"><span class="text-yellow">Docs:</span> &nbsp; &nbsp; docs.serverless.com</p>
+                <p class="ml-10"><span class="text-yellow">Bugs:</span> &nbsp; &nbsp; github.com/serverless/serverless/issues</p>
+                <p class="ml-10"><span class="text-yellow">Issues:</span> &nbsp; forum.serverless.com</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow ml-5">Your Environment Information ---------------------------</p>
+                <p class="ml-10 text-yellow whitespace-pre">Operating System:          darwin</p>
+                <p class="ml-10 text-yellow whitespace-pre">Node Version:              15.14.0</p>
+                <p class="ml-10 text-yellow whitespace-pre">Framework Version:         2.52.1</p>
+                <p class="ml-10 text-yellow whitespace-pre">Plugin Version:            5.4.3</p>
+                <p class="ml-10 text-yellow whitespace-pre">SDK Version:               4.2.5</p>
+                <p class="ml-10 text-yellow whitespace-pre">Components Version:        3.14.0</p>
+            </div>
+            <div>
+                <div class="terminal">
+                    <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                    <p>&nbsp;</p>
+                    <p class="text-red">✖ Stack myapp-dev failed to deploy <span class="text-gray">(31s)</span></p>
+                    <p>&nbsp;</p>
+                    <pre class="text-gray">Environment:   darwin, node v15.14.0, framework v2.51.2, plugin v5.4.3, SDK v4.2.3
+Documentation: docs.serverless.com
+Support:       forum.serverless.com
+Bugs:          github.com/serverless/serverless/issues</pre>
+                    <p>&nbsp;</p>
+                    <p class="text-red">Error:</p>
+                    <p>JobsWorkerLambdaFunction - Resource handler returned message: "Value nodexx at 'runtime' failed to satisfy constraint: Member must satisfy enum value set: [java8, java11, nodejs10.x, nodejs12.x, python2.7, python3.6, python3.7, python3.8, dotnetcore2.1, go1.x, ruby2.5] or be a valid ARN.</p>
+                    <p>&nbsp;</p>
+                    <p>View the full error: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn%3Aaws%3Acloudformation%3Aus-east-1%3A416566615250%3Astack%2Flift-demo-queues-dev%2F8f271030-bbec-11eb-b27c-0a4ced5e22b5</p>
+                </div>
+                <div class="terminal">
+                    <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                    <p>&nbsp;</p>
+                    <p class="text-red">✖ Stack myapp-dev failed to deploy <span class="text-gray">(31s)</span></p>
+                    <p>&nbsp;</p>
+                    <pre class="text-gray">Environment:   darwin, node v15.14.0, framework v2.51.2, plugin v5.4.3, SDK v4.2.3
+Documentation: docs.serverless.com
+Support:       forum.serverless.com
+Bugs:          github.com/serverless/serverless/issues</pre>
+                    <p>&nbsp;</p>
+                    <p class="text-red">Error:</p>
+                    <p>JobsWorkerLambdaFunction - Resource handler returned message: "Value nodexx at 'runtime' failed to satisfy constraint: Member must satisfy enum value set: [java8, java11, nodejs10.x, nodejs12.x, python2.7, python3.6, python3.7, python3.8, dotnetcore2.1, go1.x, ruby2.5] or be a valid ARN.</p>
+                    <p>&nbsp;</p>
+                    <p>View the full error: https://slss.io/d/g8hd13e4</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                step: 0,
+                second: 0,
+                frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
+                frame: 0,
+            },
+            mounted() {
+                setInterval(() => {
+                    this.step = (this.step + 1) % 6;
+                }, 3000);
+                setInterval(() => {
+                    this.second = (this.second + 1) % 18;
+                }, 1000);
+                setInterval(() => {
+                    this.frame = (this.frame + 1) % this.frames.length;
+                }, 100);
+            },
+        })
+    </script>
+
+</body>
+</html>

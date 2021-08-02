@@ -1,0 +1,145 @@
+#!/usr/bin/env node
+const ora = require('ora');
+const chalk = require('chalk');
+
+const gray = chalk.hex('#8c8d91');
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function success() {
+    console.log(`Deploying myapp in stage dev ${gray('(us-east-1)')}`);
+    console.log();
+
+    const spinner = ora({
+        text: 'Packaging',
+        color: 'red',
+    }).start();
+    await sleep(1100);
+    spinner.text = 'Excluding development dependencies';
+    await sleep(1100);
+    spinner.text = 'Excluding development dependencies';
+    await sleep(1100);
+    spinner.text = 'Uploading CloudFormation stack';
+    await sleep(1100);
+    spinner.text = `Uploading deployment artifacts ${gray('(222.51 KB)')}`;
+    await sleep(1100);
+    spinner.text = 'Validating CloudFormation template';
+    await sleep(1100);
+    spinner.text = `CloudFormation stack updating ${gray('(1/9)')}`;
+    await sleep(1100);
+    spinner.text = `CloudFormation stack updating ${gray('(3/9)')}`;
+    await sleep(1100);
+    spinner.text = `CloudFormation stack updating ${gray('(6/9)')}`;
+    await sleep(1100);
+    spinner.text = `CloudFormation stack updating ${gray('(8/9)')}`;
+    await sleep(1100);
+    // spinner.succeed(`Service deployed to stack myapp-dev`);
+    spinner.stopAndPersist({
+        text: `Service deployed to stack myapp-dev`,
+        symbol: chalk.red('✔'),
+    });
+    console.log();
+
+    console.log(`${gray('functions:')}
+  publisher: myapp-dev-publisher
+  jobsWorker: myapp-dev-worker`);
+    console.log(`${gray('endpoints:')}
+  GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/`);
+    console.log();
+
+    console.log(`${chalk.gray(`Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring`)}`);
+}
+
+async function error() {
+    console.log(`Deploying myapp in stage dev ${gray('(us-east-1)')}`);
+    console.log();
+
+    const spinner = ora({
+        text: 'Packaging',
+        color: 'red',
+    }).start();
+    await sleep(300);
+    spinner.text = 'Excluding development dependencies';
+    await sleep(300);
+    spinner.text = 'Excluding development dependencies';
+    await sleep(300);
+    spinner.text = 'Uploading CloudFormation stack';
+    await sleep(300);
+    spinner.text = `Uploading deployment artifacts ${gray('(222.51 KB)')}`;
+    await sleep(300);
+    spinner.text = 'Validating CloudFormation template';
+    await sleep(300);
+    spinner.text = `CloudFormation stack updating ${gray('(1/9)')}`;
+    await sleep(300);
+    spinner.fail(chalk.red(`Stack myapp-dev failed to deploy`));
+    console.log();
+
+    console.log(`${gray(`Environment:   darwin, node v15.14.0, framework v2.51.2, plugin v5.4.3, SDK v4.2.3
+Documentation: docs.serverless.com
+Support:       forum.serverless.com
+Bugs:          github.com/serverless/serverless/issues`)}
+
+${chalk.red('Error:')}
+JobsWorkerLambdaFunction - Resource handler returned message: "Value nodexx at 'runtime' failed to satisfy constraint: Member must satisfy enum value set: [java8, java11, nodejs10.x, nodejs12.x, python2.7, python3.6, python3.7, python3.8, dotnetcore2.1, go1.x, ruby2.5] or be a valid ARN (Service: Lambda, Status Code: 400, Request ID: a1e156ab-c7fb-4db7-8247-186cfee50800, Extended Request ID: null)" (RequestToken: 2f4894b7-3e1c-1f1c-3b3b-0ff4a8e2a10b, HandlerErrorCode: InvalidRequest).
+
+View the full error output: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn%3Aaws%3Acloudformation%3Aus-east-1%3A416566615250%3Astack%2Flift-demo-queues-dev%2F8f271030-bbec-11eb-b27c-0a4ced5e22b5`);
+}
+
+async function deprecations() {
+    await success();
+
+    console.log();
+    console.log(chalk.gray(`2 deprecations found: run the same command with '--debug' to get more details`));
+}
+
+async function dashboard() {
+    console.log(`Deploying myapp in stage dev ${gray('(us-east-1)')}`);
+    console.log();
+
+    const spinner = ora('Packaging').start();
+    await sleep(300);
+    spinner.text = 'Excluding development dependencies';
+    await sleep(300);
+    spinner.text = 'Excluding development dependencies';
+    await sleep(300);
+    spinner.text = 'Uploading CloudFormation stack';
+    await sleep(300);
+    spinner.text = `Uploading deployment artifacts ${gray('(222.51 KB)')}`;
+    await sleep(300);
+    spinner.text = 'Validating CloudFormation template';
+    await sleep(300);
+    spinner.text = `CloudFormation stack updating ${gray('(1/9)')}`;
+    await sleep(300);
+    spinner.text = `CloudFormation stack updating ${gray('(3/9)')}`;
+    await sleep(300);
+    spinner.text = `CloudFormation stack updating ${gray('(6/9)')}`;
+    await sleep(300);
+    spinner.text = `CloudFormation stack updating ${gray('(8/9)')}`;
+    await sleep(300);
+    spinner.text = `Publishing the service to the Serverless Dashboard`;
+    await sleep(1500);
+    spinner.stopAndPersist({
+        text: `Service deployed to stack myapp-dev`,
+        symbol: chalk.red('✔'),
+    });
+    console.log();
+
+    console.log(`${gray('dashboard:')} https://slss.com/d/g8hd13e4`);
+    console.log(`${gray('functions:')}
+  publisher: myapp-dev-publisher
+  jobsWorker: myapp-dev-worker`);
+    console.log(`${gray('endpoints:')}
+  GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/`);
+}
+
+if (process.argv[2] === 'error') {
+    error();
+} else if (process.argv[2] === 'deprecations') {
+    deprecations();
+} else if (process.argv[2] === 'dashboard') {
+    dashboard();
+} else {
+    success();
+}
