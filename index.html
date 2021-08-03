@@ -98,7 +98,39 @@
 
         <h2>Deploying with Dashboard</h2>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div></div>
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Using provider credentials, configured via dashboard: https://app.serverless.com/vulcan/apps/kilo/kilo-backend/prod/us-east-1/providers</span></p>
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p class="text-yellow">............................................</p>
+                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Publishing service to the Serverless Dashboard...</span></p>
+                <p>Serverless: <span class="text-yellow">Successfully published your service to the Serverless Dashboard: https://app.serverless.com/vulcan/apps/kilo/kilo-backend/prod/us-east-1</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
             <div class="terminal">
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
                 <p>&nbsp;</p>
@@ -414,6 +446,150 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                 <p>&nbsp; HttpApiUrl: https://wd6m3kwta5.execute-api.us-east-1.amazonaws.com</p>
                 <p>&nbsp;</p>
                 <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+        </div>
+
+        <h2>With plugins (warmer, webpack, storage and domain manager)</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal">
+                <p>Serverless: <span class="text-yellow">Running "serverless" installed locally (in service node_modules)</span></p>
+                <p>Serverless: <span class="text-yellow">WarmUp: Creating warmer "officeHoursWarmer" to warm up 9 functions:</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-login</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-logout</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-providerAuth</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-providerLink</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-providerRefresh</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userCreate</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userDelete</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userRead</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userUpdate</span></p>
+                <p>Serverless: <span class="text-yellow">WarmUp: Creating warmer "outOfOfficeHoursWarmer" to warm up 9 functions:</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-login</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-logout</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-providerAuth</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-providerLink</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-providerRefresh</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userCreate</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userDelete</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userRead</span></p>
+                <p>Serverless: <span class="text-yellow whitespace-pre">          * kilo-backend-prod-userUpdate</span></p>
+                <p>Serverless: <span class="text-yellow">Bundling with Webpack...</span></p>
+                <pre>assets by path src/functions/ 349 KiB
+  assets by path src/functions/user/ 42 KiB
+    asset src/functions/user/create/handler.js 10.5 KiB [emitted] [minimized] (name: src/functions/user/create/handler) 1 related asset
+    asset src/functions/user/update/handler.js 10.5 KiB [emitted] [minimized] (name: src/functions/user/update/handler) 1 related asset
+    asset src/functions/user/read/handler.js 10.5 KiB [emitted] [minimized] (name: src/functions/user/read/handler) 1 related asset
+    asset src/functions/user/delete/handler.js 10.5 KiB [emitted] [minimized] (name: src/functions/user/delete/handler) 1 related asset
+  asset src/functions/refresh/handler.js 94.1 KiB [emitted] [minimized] (name: src/functions/refresh/handler) 1 related asset
+  asset src/functions/auth/handler.js 94.1 KiB [emitted] [minimized] (name: src/functions/auth/handler) 1 related asset
+  asset src/functions/link/handler.js 94.1 KiB [emitted] [minimized] (name: src/functions/link/handler) 1 related asset
+  asset src/functions/logout/handler.js 10.4 KiB [emitted] [minimized] (name: src/functions/logout/handler) 1 related asset
+  asset src/functions/login/handler.js 10.4 KiB [emitted] [minimized] (name: src/functions/login/handler) 1 related asset
+  asset src/functions/admin/randomise/handler.js 3.57 KiB [emitted] [minimized] (name: src/functions/admin/randomise/handler) 1 related asset
+assets by path .warmup/ 5.46 KiB
+  asset .warmup/outOfOfficeHoursWarmer/index.js 2.73 KiB [emitted] [minimized] (name: .warmup/outOfOfficeHoursWarmer/index) 1 related asset
+  asset .warmup/officeHoursWarmer/index.js 2.73 KiB [emitted] [minimized] (name: .warmup/officeHoursWarmer/index) 1 related asset
+runtime modules 9.15 KiB 40 modules
+orphan modules 11 bytes [orphan] 1 module
+built modules 198 KiB [built]
+  modules by path ./src/ 190 KiB
+    modules by path ./src/libs/ 174 KiB 16 modules
+    modules by path ./src/functions/ 6.31 KiB 4 modules
+    modules by path ./src/util/*.ts 7.65 KiB 10 modules
+    modules by path ./src/middleware/*.ts 1.34 KiB 4 modules
+    ./src/resolvers/api-gateway.ts 280 bytes [built] [code generated]
+  modules by path ./.warmup/ 7.5 KiB
+    ./.warmup/officeHoursWarmer/index.js 3.75 KiB [built] [code generated]
+    ./.warmup/outOfOfficeHoursWarmer/index.js 3.75 KiB [built] [code generated]
+  modules by path external "@middy/ 84 bytes
+    external "@middy/core" 42 bytes [built] [code generated]
+    external "@middy/http-json-body-parser" 42 bytes [built] [code generated]
+
+WARNING in ./src/libs/user.ts 403:0-42
+export 'UserData' (reexported as 'UserData') was not found in '@util/types' (possible exports: )
+ @ ./src/functions/login/handler.ts 2:0-30 8:20-30
+
+WARNING in ./src/libs/user.ts 403:0-42
+export 'UserSerialised' (reexported as 'UserSerialised') was not found in '@util/types' (possible exports: )
+ @ ./src/functions/login/handler.ts 2:0-30 8:20-30
+
+webpack compiled with 2 warnings in 3341 ms
+(node:67778) [DEP_WEBPACK_CHUNK_MODULES_ITERABLE] DeprecationWarning: Chunk.modulesIterable: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:67778) [DEP_WEBPACK_MODULE_ISSUER] DeprecationWarning: Module.issuer: Use new ModuleGraph API</pre>
+                <p>Serverless: <span class="text-yellow">Package lock found - Using locked versions</span></p>
+                <p>Serverless: <span class="text-yellow">Packing external modules: @middy/core@1.5.2, @middy/http-json-body-parser@1.5.2, @sentry/serverless@6.6.0, @vulcancreative/serverless-storage@1.1.3, aws-sdk@2.884.0, source-map-support@0.5.19, bcryptjs@2.4.3, jsonwebtoken@8.5.1, uuid@3.3.2, validator@13.5.2, node-fetch@2.6.1</span></p>
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless Storage: Storage already exists</p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="ml-5">warmUpPluginOfficeHoursWarmer: myapp-dev-warmup-plugin-officeHoursWarmer</p>
+                <p class="ml-5">warmUpPluginOutOfOfficeHoursWarmer: myapp-dev-warmup-plugin-outOfOfficeHoursWarmer</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+                <p>Serverless Domain Manager: Info: Found apiId: r0oxfy319i for backend.kilo.ai</p>
+                <p>Serverless Domain Manager: Info: Updated API mapping from '' to '(none)' for backend.kilo.ai</p>
+                <p>Serverless Domain Manager: Summary: Distribution Domain Name</p>
+                <p>Serverless Domain Manager:    Domain Name: backend.kilo.ai</p>
+                <p>Serverless Domain Manager:    Target Domain: d-s7juq9wqf0.execute-api.us-east-1.amazonaws.com</p>
+                <p>Serverless Domain Manager:    Hosted Zone Id: Z1UJRXOUMOOFQ8</p>
+                <p>Serverless: <span class="text-yellow">WarmUp: Prewarming up you functions using warmer "officeHoursWarmer".</span></p>
+                <p>Serverless: <span class="text-yellow">WarmUp: Warmer "officeHoursWarmer" successfully prewarmed your functions.</span></p>
+                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+            </div>
+
+            <div>
+                <div class="terminal sticky top-0">
+                    <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">/* Note: some spinner steps are detailed below for clarity */</p>
+                    <p><span class="text-red">⠋</span> [Webpack] Bundling with Webpack</p>
+                    <p><span class="text-red">⠋</span> [Webpack] Packing external modules</p>
+                    <p><span class="text-red">⠋</span> Packaging</p>
+                    <p><span class="text-red">⠋</span> ...</p>
+                    <p><span class="text-red">⠋</span> CloudFormation stack updating (9/9)</p>
+                    <p><span class="text-red">⠋</span> [Domain Manager] Updating API mapping from '' to '(none)' for backend.kilo.ai</p>
+                    <p><span class="text-red">⠋</span> [WarmUp] Warming using the "officeHoursWarmer" warmer</p>
+                    <p><span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span></p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">functions:</p>
+                    <p class="ml-5">publisher: myapp-dev-publisher</p>
+                    <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                    <p class="ml-5">warmUpPluginOfficeHoursWarmer: myapp-dev-warmup-plugin-officeHoursWarmer</p>
+                    <p class="ml-5">warmUpPluginOutOfOfficeHoursWarmer: myapp-dev-warmup-plugin-outOfOfficeHoursWarmer</p>
+                    <p class="text-gray">endpoints:</p>
+                    <p class="ml-5">GET - https://3fr81y9fpd.execute-api.us-east-1.amazonaws.com/</p>
+                    <p class="text-gray">warmup plugin:</p>
+                    <p class="ml-5">- officeHoursWarmer</p>
+                    <p class="ml-5">- outOfOfficeHoursWarmer</p>
+                    <p class="text-gray">domain manager:</p>
+                    <p class="ml-5">domain name: backend.kilo.ai</p>
+                    <p class="ml-5">target domain: d-s7juq9wqf0.execute-api.us-east-1.amazonaws.com</p>
+                    <p class="ml-5">hosted zone id: Z1UJRXOUMOOFQ8</p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
+                </div>
             </div>
         </div>
 
