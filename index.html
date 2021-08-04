@@ -66,6 +66,8 @@
             </div>
         </div>
 
+        <rating sample="Successful deployment"></rating>
+
         <h2>Ongoing deployment</h2>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal">
@@ -95,6 +97,8 @@
                 </p>
             </div>
         </div>
+
+        <rating sample="Ongoing deployment"></rating>
 
         <h2>Deploying with Dashboard</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -147,6 +151,8 @@
             </div>
         </div>
 
+        <rating sample="With Dashboard"></rating>
+
         <h2>API Gateway proxy configuration (e.g. ExpressJS app)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
             <div></div>
@@ -164,6 +170,8 @@
                 <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
             </div>
         </div>
+
+        <rating sample="API Gateway proxy configuration"></rating>
 
         <h2>Deprecations</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -247,6 +255,8 @@
             </div>
         </div>
 
+        <rating sample="Deprecations"></rating>
+
         <h2>Error</h2>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal">
@@ -313,6 +323,8 @@ Bugs:          github.com/serverless/serverless/issues</pre>
             </div>
         </div>
 
+        <rating sample="Error"></rating>
+
         <h2>Non-interactive deployment (no TTY, e.g. CI/CD)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal">
@@ -364,6 +376,8 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                 <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
             </div>
         </div>
+
+        <rating sample="Non-interactive deployment"></rating>
 
         <h2>Verbose deployment (<code class="text-lg">serverless deploy --verbose</code>)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -448,6 +462,8 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                 <p class="text-gray">Monitor API requests via the Serverless Dashboard: https://slss.io/monitoring</p>
             </div>
         </div>
+
+        <rating sample="Verbose deployment"></rating>
 
         <h2>With plugins (warmer, webpack, storage and domain manager)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -593,18 +609,20 @@ webpack compiled with 2 warnings in 3341 ms
             </div>
         </div>
 
+        <rating sample="With plugins"></rating>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
+        const app = Vue.createApp({
+            data: () => ({
                 step: 0,
                 second: 0,
                 frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
                 frame: 0,
-            },
+                showFeedback: null,
+            }),
             mounted() {
                 setInterval(() => {
                     this.step = (this.step + 1) % 6;
@@ -616,7 +634,68 @@ webpack compiled with 2 warnings in 3341 ms
                     this.frame = (this.frame + 1) % this.frames.length;
                 }, 100);
             },
+            methods: {
+                rate(sample, rating) {
+                    console.log(sample);
+                    console.log(rating);
+                    this.showFeedback = sample;
+                }
+            }
+        });
+
+        app.component('rating', {
+            props: ['sample'],
+            data: () => ({
+                showFeedback: false,
+                showThanks: false,
+                rating: null,
+                textFeedback: '',
+            }),
+            template: `
+                <div class="py-4">
+                <div v-if="!showFeedback && !showThanks" class="text-3xl text-center">
+                    <button @click="rate(1)" type="button" class="px-6 py-3 hover:scale-150 transform transition transition-all duration-500">👍️</button>
+                    <button @click="rate(-1)" type="button" class="px-6 py-3 hover:scale-150 transform transition transition-all duration-500">👎️</button>
+                </div>
+                <form v-if="showFeedback" @submit.prevent="submit" class="mx-auto max-w-sm clear-both">
+                    <textarea v-model="textFeedback" rows="3" class="px-4 py-2 w-full rounded border" placeholder="Optional extra feedback"></textarea>
+                    <button type="submit" class="float-right text-sm px-5 py-2 rounded bg-red text-white">Send feedback</button>
+                </form>
+                <div v-if="showThanks" class="mx-auto max-w-sm clear-both">
+                    <p class="mb-1 text-center">Thank you for the feedback!</p>
+                </div>
+                </div>`,
+            methods: {
+                rate(rating) {
+                    console.log(this.sample);
+                    console.log(rating);
+                    this.rating = rating;
+                    this.showFeedback = true;
+                },
+                submit() {
+                    const body = {
+                        sample: this.sample,
+                        rating: this.rating,
+                        feedback: this.textFeedback,
+                    };
+                    console.log(body);
+                    this.showThanks = true;
+                    fetch('https://inventive-source-yotb8.cloud.serverless.com/feedback', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(body),
+                    })
+                    // Reset
+                    this.rating = null;
+                    this.showFeedback = false;
+                }
+            }
         })
+
+        app.mount('#app');
     </script>
 
 </body>
