@@ -86,14 +86,14 @@
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
                 <p>&nbsp;</p>
                 <p>
-                    <span class="text-red">{{ frames[frame] }}</span>
+                    <span class="text-red">{{ frames[frame] }}&nbsp;</span>
                     <span v-if="step === 0">Packaging</span>
                     <span v-if="step === 1">Uploading deployment artifacts (222 KB)</span>
                     <span v-if="step === 2">Validating CloudFormation template</span>
                     <span v-if="step === 3">CloudFormation stack updating <span class="text-gray">(1/9)</span></span>
                     <span v-if="step === 4">CloudFormation stack updating <span class="text-gray">(3/9)</span></span>
                     <span v-if="step === 5">CloudFormation stack updating <span class="text-gray">(6/9)</span></span>
-                    <span class="text-gray">({{ 20 + second }}s)</span>
+                    <span class="text-gray">&nbsp;({{ 20 + second }}s)</span>
                 </p>
             </div>
         </div>
