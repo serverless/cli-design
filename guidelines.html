@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Serverless Framework CLI redesign</title>
+    <link href="styles.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="bg-black py-12">
+        <div class="mx-auto max-w-3xl flex flex-col items-center">
+            <img class="h-12 mb-8" src="https://www.serverless.com/static/serverless-framework-235f7e57983d270320cba8f86ec0ea65.svg">
+            <h1 class="text-4xl text-red text-center">cli design guidelines</h1>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-3 my-16 prose">
+
+        <h2>General principles</h2>
+
+        <h2>Colors and styles</h2>
+        <p>
+            The CLI should provide a user experience consistent with other Serverless products.
+            As such, CLI output formatting aims to be <strong>clear</strong> and <strong>minimalistic</strong>.
+        </p>
+        <p>
+            Usage of bold, italic, and underline should be exceptional.
+        </p>
+        <p>
+            Serverless is a single-color brand. Thus, colors should be limited to:
+        </p>
+        <div class="flex items-center mb-2">
+            <div class="inline-block h-5 w-5 bg-white shadow rounded mr-4"></div>
+            <div class="flex-grow">White: default color, used for almost all information.</div>
+            <code>#ffffff</code>
+        </div>
+        <div class="flex items-center mb-2">
+            <div class="inline-block h-5 w-5 bg-red shadow rounded mr-4"></div>
+            <div class="flex-grow">Red: used for drawing attention.</div>
+            <code>#fd5750</code>
+        </div>
+        <div class="flex items-center mb-2">
+            <div class="inline-block h-5 w-5 bg-gray shadow rounded mr-4"></div>
+            <div class="flex-grow">Gray: secondary color used for secondary information.</div>
+            <code>#8c8d91</code>
+        </div>
+        <p>
+            Use of other colors, including green, should be exceptional.
+            Note: <a href="https://github.com/chalk/chalk#256-and-truecolor-color-support">yes</a>, we can use hex colors in terminals.
+        </p>
+        <h3>Using red for success</h3>
+        <p>
+            Using red to highlight everything, including success, is intentional.
+            It allows to match the Serverless branding white it adds uniqueness to the CLI's identity.
+        </p>
+        <p>
+            That doesn't mean that success and error logs should display identically. For example:
+        </p>
+        <div class="terminal">
+            <div><span class="text-red">✔</span> Application deployed succesfully</div>
+        </div>
+        <div class="terminal">
+            <div class="text-red">✖ Deployment failed</div>
+        </div>
+        <p>
+            With clear wording, symbols and appropriate amount of color, success and failures can be communicated clearly.
+        </p>
+
+    </div>
+
+</body>
+</html>

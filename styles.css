@@ -4,6 +4,19 @@
 h2 {
     @apply text-xl mt-8 mb-8;
 }
+h3 {
+    @apply text-lg mb-4;
+}
+.prose code {
+    @apply inline-block px-2 my-0.5 bg-black text-gray-100 rounded font-normal;
+}
+.prose code:before, .prose code:after {
+    display: none;
+}
+code.red {
+    @apply text-red;
+}
+
 .terminal {
     @apply mb-4 p-8 rounded-xl bg-black text-gray-50 font-mono text-sm xl:text-xs 2xl:text-sm shadow-lg;
 }
