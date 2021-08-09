@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <comments sample="1"></comments>
+        <comments id="2"></comments>
 
         <h2>Ongoing deployment</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <comments sample="Ongoing deployment"></comments>
+        <comments id="2"></comments>
 
         <h2>Deploying with Dashboard</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -158,7 +158,7 @@
             </div>
         </div>
 
-        <comments sample="With Dashboard"></comments>
+        <comments id="2"></comments>
 
         <h2>API Gateway proxy configuration (e.g. ExpressJS app)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -180,7 +180,7 @@
             </div>
         </div>
 
-        <comments sample="API Gateway proxy configuration"></comments>
+        <comments id="2"></comments>
 
         <h2>Deprecations</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -255,7 +255,7 @@
             </div>
         </div>
 
-        <comments sample="Deprecations"></comments>
+        <comments id="2"></comments>
 
         <h2>Error</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -328,7 +328,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
             </div>
         </div>
 
-        <comments sample="Error"></comments>
+        <comments id="2"></comments>
 
         <h2>Non-interactive deployment (no TTY, e.g. CI/CD)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -385,7 +385,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
             </div>
         </div>
 
-        <comments sample="Non-interactive deployment"></comments>
+        <comments id="2"></comments>
 
         <h2>Verbose deployment</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -474,7 +474,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
             </div>
         </div>
 
-        <comments sample="Verbose deployment"></comments>
+        <comments id="2"></comments>
 
         <h2>With plugins (warmer, webpack, storage and domain manager)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -623,7 +623,7 @@ webpack compiled with 2 warnings in 3341 ms
             </div>
         </div>
 
-        <comments id="With plugins"></comments>
+        <comments id="2"></comments>
 
     </div>
 
@@ -664,7 +664,7 @@ webpack compiled with 2 warnings in 3341 ms
         app.component('comments', {
             props: ['id'],
             data: () => ({
-                url: '#',
+                url: 'https://github.com/mnapoli/sls-output/discussions',
                 commentCount: null,
             }),
             template: `
@@ -674,6 +674,9 @@ webpack compiled with 2 warnings in 3341 ms
                     <span v-if="commentCount <= 0">Provide feedback in GitHub</span>
                     <span v-if="commentCount > 0">{{ commentCount }} comments in GitHub</span></a>
                 </div>`,
+            mounted() {
+                this.url = `https://github.com/mnapoli/sls-output/discussions/${this.id}`;
+            }
         })
 
         app.mount('#app');
