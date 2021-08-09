@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "octokit": "^1.3.0"
+  },
+  "devDependencies": {
+    "serverless": "^2.53.1",
+    "serverless-lift": "^1.4.0"
+  }
+}

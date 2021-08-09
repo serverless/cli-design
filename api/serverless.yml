@@ -1,0 +1,30 @@
+service: sls-cli-design-api
+org: mnapoli
+app: sls-cli-design
+frameworkVersion: '2'
+
+provider:
+    name: aws
+    runtime: nodejs14.x
+    stage: prod
+    lambdaHashingVersion: 20201221
+    httpApi:
+        cors: true
+    environment:
+        TABLE_NAME: ${construct:table.tableName}
+        GITHUB_TOKEN_READ: ${ssm:/sls-cli-design-api/prod/github-token}
+
+functions:
+    refresh:
+        handler: refresh.handler
+    list:
+        handler: list.handler
+        events:
+            - httpApi: 'GET /discussions'
+
+constructs:
+    table:
+        type: database/dynamodb-single-table
+
+plugins:
+  - serverless-lift
