@@ -17,6 +17,8 @@ provider:
 functions:
     refresh:
         handler: refresh.handler
+        events:
+            - schedule: 'rate(5 minutes)'
     list:
         handler: list.handler
         events:
