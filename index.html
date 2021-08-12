@@ -158,9 +158,15 @@
             </div>
         </div>
 
-        <comments id=""></comments>
+        <comments :id="6"></comments>
 
         <h2>API Gateway proxy configuration (e.g. ExpressJS app)</h2>
+        <div class="prose max-w-none mb-4">
+            <p>
+                When an application deploys a single "catch-all" API endpoint (for example an ExpressJS application),
+                we can simplify further by replacing the <code>endpoints:</code> list with a single <code>endpoint:</code> field.
+            </p>
+        </div>
         <div class="grid xl:grid-cols-2 gap-4">
             <div></div>
             <div class="terminal">
@@ -180,7 +186,7 @@
             </div>
         </div>
 
-        <comments id=""></comments>
+        <comments :id="7"></comments>
 
         <h2>Deprecations</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -255,7 +261,7 @@
             </div>
         </div>
 
-        <comments id=""></comments>
+        <comments :id="8"></comments>
 
         <h2>Error</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -328,7 +334,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
             </div>
         </div>
 
-        <comments id=""></comments>
+        <comments :id="9"></comments>
 
         <h2>Non-interactive deployment (no TTY, e.g. CI/CD)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
@@ -664,7 +670,7 @@ webpack compiled with 2 warnings in 3341 ms
                 commentCount: 0,
             }),
             template: `
-                <div class="my-4 text-center text-red" title="Post feedback on the new design in GitHub discussions">
+                <div class="my-4 text-center text-red underline" title="Post feedback on the new design in GitHub discussions">
                 <a :href="url" class="px-6 py-3 hover:underline">
                     <svg class="h-6 w-6 inline mr-2" aria-hidden="true" viewBox="0 0 24 24" version="1.1" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 000 2.75v9.5C0 13.216.784 14 1.75 14H3v1.543a1.457 1.457 0 002.487 1.03L8.061 14h6.189A1.75 1.75 0 0016 12.25v-9.5A1.75 1.75 0 0014.25 1H1.75zM1.5 2.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v9.5a.25.25 0 01-.25.25h-6.5a.75.75 0 00-.53.22L4.5 15.44v-2.19a.75.75 0 00-.75-.75h-2a.25.25 0 01-.25-.25v-9.5z"></path><path d="M22.5 8.75a.25.25 0 00-.25-.25h-3.5a.75.75 0 010-1.5h3.5c.966 0 1.75.784 1.75 1.75v9.5A1.75 1.75 0 0122.25 20H21v1.543a1.457 1.457 0 01-2.487 1.03L15.939 20H10.75A1.75 1.75 0 019 18.25v-1.465a.75.75 0 011.5 0v1.465c0 .138.112.25.25.25h5.5a.75.75 0 01.53.22l2.72 2.72v-2.19a.75.75 0 01.75-.75h2a.25.25 0 00.25-.25v-9.5z"></path></svg>
                     <span v-if="commentCount <= 0">Provide feedback in GitHub</span>
