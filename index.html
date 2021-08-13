@@ -7,18 +7,115 @@
 </head>
 <body class="bg-gray-100">
 
-    <div class="bg-black text-red none xl:block shadow-lg">
-        <div class="container mx-auto px-3 py-6 grid grid-cols-2 text-center font-bold text-sm uppercase leading-tight">
-            <h1>existing design</h1>
-            <h1>new design</h1>
+    <div class="bg-black py-12">
+        <div class="mx-auto max-w-3xl flex flex-col items-center">
+            <img class="h-12" src="https://www.serverless.com/static/serverless-framework-235f7e57983d270320cba8f86ec0ea65.svg">
         </div>
     </div>
 
     <div id="app" class="container mx-auto px-3 my-16">
 
+        <div class="mx-auto prose">
+            <h1>v3.0 CLI redesign</h1>
+            <p>
+                This document presents CLI redesigns planned for the future <a href="https://github.com/serverless/serverless">Serverless Framework</a> v3.0.
+                Our goal is to gather feedback from the community.
+            </p>
+            <p>Here is a quick preview, complete examples are included below:</p>
+        </div>
+
+        <div class="terminal max-w-2xl mx-auto mt-4 mb-8">
+            <p>$ serverless deploy</p>
+            <p>&nbsp;</p>
+            <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+            <p>&nbsp;</p>
+            <p>
+                <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
+            </p>
+            <p>&nbsp;</p>
+            <p class="text-gray">functions:</p>
+            <p class="ml-5">home: myapp-dev-home</p>
+            <p class="text-gray">endpoints:</p>
+            <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+            <p>&nbsp;</p>
+            <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
+        </div>
+
+        <div class="mx-auto prose">
+            <h2>Design principles</h2>
+            <p>
+                The goal of the redesign is to provide a better user experience with a simpler output and consistent design across all <a href="https://www.serverless.com/">Serverless</a> products.
+            </p>
+            <ul>
+                <li>
+                    <strong>Optimize for use-cases</strong>: prioritize only the most important information.
+                    <p>For example, deploying is all about getting changes live. The most important information is not the deployment log but the application URL (or any other output).</p>
+                    <p>On the other hand, the most important information for a failed deployment is the error itself.</p>
+                </li>
+                <li>
+                    <strong>Minimize noise</strong>: by default, only show necessary information. Minimize formats.
+                    <p>We want to keep verbose information an option, but it should not be the default behavior.</p>
+                </li>
+            </ul>
+
+            <h2>Colors and styles</h2>
+            <p>
+                Colors and styles should be consistent with other Serverless products.
+                As such, CLI output formatting aims to be <strong>clear</strong> and <strong>minimalistic</strong>.
+            </p>
+            <p>
+                Usage of bold, italic, and underline should be exceptional.
+            </p>
+            <p>
+                Serverless is a single-color brand. Thus, colors are intentionally limited to:
+            </p>
+            <div class="flex items-center mb-2">
+                <div class="inline-block h-5 w-5 bg-white shadow rounded mr-4"></div>
+                <div class="flex-grow">White: default color, used for almost all information.</div>
+                <code>#ffffff</code>
+            </div>
+            <div class="flex items-center mb-2">
+                <div class="inline-block h-5 w-5 bg-red shadow rounded mr-4"></div>
+                <div class="flex-grow">Red: used for drawing attention.</div>
+                <code>#fd5750</code>
+            </div>
+            <div class="flex items-center mb-2">
+                <div class="inline-block h-5 w-5 bg-gray shadow rounded mr-4"></div>
+                <div class="flex-grow">Gray: secondary color used for secondary information.</div>
+                <code>#8c8d91</code>
+            </div>
+            <p>
+                Use of other colors, including green, should be exceptional.
+            </p>
+            <h3>Using red for success</h3>
+            <p>
+                Using red to highlight everything, including success, is intentional.
+                It allows to match the Serverless branding while adding uniqueness to the CLI's identity.
+            </p>
+            <p>
+                That doesn't mean that success and error logs should display identically.
+                With clear wording, symbols and appropriate amount of color, success and failures can be communicated clearly:
+            </p>
+        </div>
+        <div class="terminal max-w-2xl mx-auto mt-4">
+            <div><span class="text-red">✔</span> Application deployed succesfully</div>
+        </div>
+        <div class="terminal max-w-2xl mx-auto mt-4 mb-8">
+            <div class="text-red">✖ Deployment failed</div>
+        </div>
+
+        <div class="mx-auto prose">
+            <h2>Redesign examples</h2>
+            <p>
+                The examples below illustrate multiple scenarios.
+                The left side shows the current CLI design.
+                The right side shows the future CLI design.
+            </p>
+        </div>
+
         <h2>Successful deployment</h2>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
@@ -50,7 +147,7 @@
                 <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
             </div>
 
-            <div class="terminal">
+            <div class="terminal v3">
                 <p>$ serverless deploy</p>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -72,8 +169,15 @@
         <comments :id="2"></comments>
 
         <h2>Ongoing deployment</h2>
+        <div class="prose max-w-none mb-4">
+            <p>
+                Instead of printing all deployment steps to the output, the new design includes a spinner that refreshes in-place.
+                As long as every step succeeds, the next step overrides the previous one, keeping the output as minimal as possible.
+                Below is an illustration:
+            </p>
+        </div>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
@@ -86,7 +190,7 @@
                 <p class="text-yellow">............<span v-for="i in second">.</span></p>
             </div>
 
-            <div class="terminal">
+            <div class="terminal v3">
                 <p>$ serverless deploy</p>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -108,7 +212,7 @@
 
         <h2>Deploying with Dashboard</h2>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Using provider credentials, configured via dashboard: https://app.serverless.com/vulcan/apps/kilo/kilo-backend/prod/us-east-1/providers</span></p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
@@ -140,7 +244,7 @@
                 <p>Serverless: <span class="text-yellow">Publishing service to the Serverless Dashboard...</span></p>
                 <p>Serverless: <span class="text-yellow">Successfully published your service to the Serverless Dashboard: https://app.serverless.com/myorg/apps/kilo/kilo-backend/prod/us-east-1</span></p>
             </div>
-            <div class="terminal">
+            <div class="terminal v3">
                 <p>$ serverless deploy</p>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -169,7 +273,7 @@
         </div>
         <div class="grid xl:grid-cols-2 gap-4">
             <div></div>
-            <div class="terminal">
+            <div class="terminal v3">
                 <p>$ serverless deploy</p>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -190,7 +294,7 @@
 
         <h2>Deprecations</h2>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
@@ -229,7 +333,7 @@
                 <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
             </div>
             <div>
-                <div class="terminal">
+                <div class="terminal v3">
                     <p>$ serverless deploy</p>
                     <p>&nbsp;</p>
                     <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -248,7 +352,7 @@
                     <p>&nbsp;</p>
                     <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
                 </div>
-                <div class="terminal">
+                <div class="terminal v3">
                     <p>$ serverless doctor</p>
                     <p>2 deprecations triggered in the last command:</p>
                     <p>&nbsp;</p>
@@ -265,7 +369,7 @@
 
         <h2>Error</h2>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
@@ -297,7 +401,7 @@
                 <p class="ml-10 text-yellow whitespace-pre">Components Version:        3.14.0</p>
             </div>
             <div>
-                <div class="terminal">
+                <div class="terminal v3">
                     <p>$ serverless deploy</p>
                     <p>&nbsp;</p>
                     <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -314,7 +418,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                     <p>&nbsp;</p>
                     <p>View the full error: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn%3Aaws%3Acloudformation%3Aus-east-1%3A416566615250%3Astack%2Flift-demo-queues-dev%2F8f271030-bbec-11eb-b27c-0a4ced5e22b5</p>
                 </div>
-                <div class="terminal">
+                <div class="terminal v3">
                     <p>$ serverless deploy</p>
                     <p>&nbsp;</p>
                     <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -338,7 +442,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
 
         <h2>Non-interactive deployment (no TTY, e.g. CI/CD)</h2>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
@@ -370,7 +474,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                 <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
             </div>
 
-            <div class="terminal">
+            <div class="terminal v3">
                 <p>$ serverless deploy</p>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -395,7 +499,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
 
         <h2>Verbose deployment</h2>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy --verbose</p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
@@ -442,7 +546,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                 <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
             </div>
 
-            <div class="terminal">
+            <div class="terminal v3">
                 <p>$ serverless deploy --verbose</p>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -489,7 +593,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
             </p>
         </div>
         <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal">
+            <div class="terminal v2">
                 <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Running "serverless" installed locally (in service node_modules)</span></p>
                 <p>Serverless: <span class="text-yellow">WarmUp: Creating warmer "officeHoursWarmer" to warm up 9 functions:</span></p>
@@ -599,7 +703,7 @@ webpack compiled with 2 warnings in 3341 ms
             </div>
 
             <div>
-                <div class="terminal sticky top-0">
+                <div class="terminal v3 sticky top-0">
                     <p>$ serverless deploy</p>
                     <p>&nbsp;</p>
                     <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
@@ -642,7 +746,7 @@ webpack compiled with 2 warnings in 3341 ms
     <script src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js"></script>
     <script>
         // Add anchors to headers
-        anchors.add('h2');
+        anchors.add();
 
         const fetchPromise = fetch('https://3a3ygeli99.execute-api.us-east-1.amazonaws.com/discussions').then(data => data.json());
 
