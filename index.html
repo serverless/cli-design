@@ -848,7 +848,7 @@ webpack compiled with 2 warnings in 3341 ms
         app.component('comments', {
             props: ['id'],
             data: () => ({
-                url: 'https://github.com/mnapoli/sls-output/discussions',
+                url: 'https://github.com/serverless/cli-design/discussions',
                 commentCount: 0,
             }),
             template: `
@@ -860,7 +860,7 @@ webpack compiled with 2 warnings in 3341 ms
                     <span v-if="commentCount > 1">{{ commentCount }} comments in GitHub</span></a>
                 </div>`,
             mounted() {
-                this.url = `https://github.com/mnapoli/sls-output/discussions/${this.id}`;
+                this.url = `https://github.com/serverless/cli-design/discussions/${this.id}`;
                 fetchPromise.then((data) => {
                     this.commentCount = (this.id in data) ? data[this.id].commentCount : 0;
                 });

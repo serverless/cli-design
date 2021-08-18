@@ -8,7 +8,7 @@ const github = new Octokit({
 
 exports.handler = async function(event, context) {
     const data = await github.graphql(`query {
-        repository(owner: "mnapoli", name: "cli-design") {
+        repository(owner: "serverless", name: "cli-design") {
             discussions(first: 10) {
                 nodes {
                     # type: Discussion
