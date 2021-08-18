@@ -592,10 +592,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
         <div class="prose max-w-none mb-4">
             <p>
                 With v2.x, plugins log to the output using <code>console.log()</code> or <code>serverless.cli.log()</code>.
-            </p>
-            <p>
-                In v3, these outputs will be hidden by default (and visible with <code>--verbose</code>).
-                Plugins can extend the output via new APIs:
+                In v3, plugins can extend the structured output with new APIs:
             </p>
             <p>
                 <code>serverless.cli.updateProgress('Message')</code>: updates the spinner to display a custom step.
@@ -604,6 +601,7 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                 <code>serverless.addOutputSection('section name', 'content')</code>: adds a new section to the "Service information".
             </p>
             <p>
+                It is not decided yet whether <code>console.log()</code> plugin output will be hidden by default (and visible with <code>--verbose</code>) or not.
                 The example below is inspired from a project using the following plugins: warmer, webpack, storage and domain manager.
             </p>
         </div>
