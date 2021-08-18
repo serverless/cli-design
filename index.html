@@ -443,6 +443,12 @@ Bugs:          github.com/serverless/serverless/issues</pre>
         <comments :id="9"></comments>
 
         <h2>Non-interactive deployment (no TTY, e.g. CI/CD)</h2>
+        <div class="prose max-w-none mb-4">
+            <p>
+                The interactive spinner will be disabled when deploying with a non-interactive terminal. For example in CI/CD.
+                As such, each step will be displayed:
+            </p>
+        </div>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal v2">
                 <p>$ serverless deploy</p>
@@ -481,10 +487,10 @@ Bugs:          github.com/serverless/serverless/issues</pre>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
                 <p>&nbsp;</p>
-                <p>Packaging</p>
-                <p>Uploading deployment artifacts (222 KB)</p>
-                <p>Validating CloudFormation template</p>
-                <p>CloudFormation stack updating</p>
+                <p>Packaging <span class="text-gray">(0s)</span></p>
+                <p>Uploading deployment artifacts (222 KB) <span class="text-gray">(3s)</span></p>
+                <p>Validating CloudFormation template <span class="text-gray">(8s)</span></p>
+                <p>CloudFormation stack updating <span class="text-gray">(11s)</span></p>
                 <p>Service deployed to stack myapp-dev <span class="text-gray">(31s)</span></p>
                 <p>&nbsp;</p>
                 <p class="text-gray">functions:</p>
@@ -500,6 +506,15 @@ Bugs:          github.com/serverless/serverless/issues</pre>
         <comments :id="10"></comments>
 
         <h2>Verbose deployment</h2>
+        <div class="prose max-w-none mb-4">
+            <p>
+                The normal output is very minimal. Using the <code>--verbose</code> option prints all details and disables all interactive elements.
+                An extra verbosity level is available via <code>--debug</code>: this option prints verbose logs + internal Framework logs.
+            </p>
+            <p>
+                Preview of <code>--verbose</code>:
+            </p>
+        </div>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal v2">
                 <p>$ serverless deploy --verbose</p>
