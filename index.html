@@ -301,81 +301,6 @@
 
         <comments :id="7"></comments>
 
-        <h2>Deprecations</h2>
-        <div class="grid xl:grid-cols-2 gap-4">
-            <div class="terminal v2">
-                <p>$ serverless deploy</p>
-                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
-                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
-                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
-                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
-                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
-                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
-                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
-                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
-                <p class="text-yellow">............................................</p>
-                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
-                <p class="text-yellow underline">Service Information</p>
-                <p><span class="text-yellow">service:</span> myapp</p>
-                <p><span class="text-yellow">stage:</span> dev</p>
-                <p><span class="text-yellow">region:</span> us-east-1</p>
-                <p><span class="text-yellow">stack:</span> myapp-dev</p>
-                <p><span class="text-yellow">resources:</span> 14</p>
-                <p class="text-yellow">api keys:</p>
-                <p class="ml-5">None</p>
-                <p class="text-yellow">endpoints:</p>
-                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
-                <p class="text-yellow">functions:</p>
-                <p class="ml-5">publisher: myapp-dev-publisher</p>
-                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
-                <p class="text-yellow">layers:</p>
-                <p class="ml-5">None</p>
-                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
-                <p>Serverless: <span class="text-orange font-bold">Deprecation warnings:</span></p>
-                <p>&nbsp;</p>
-                <p class="text-orange font-bold">Detected ".env" files. In the next major release variables from ".env" files will be automatically loaded into the serverless build process. Set "useDotenv: true" to adopt that behavior now.</p>
-                <p class="text-orange">More Info: https://www.serverless.com/framework/docs/deprecations/#LOAD_VARIABLES_FROM_ENV_FILES</p>
-                <p>&nbsp;</p>
-                <p class="text-orange font-bold">Support for "package.include" and "package.exclude" will be removed with next major release. Please use "package.patterns" instead</p>
-                <p class="text-orange">More Info: https://www.serverless.com/framework/docs/deprecations/#NEW_PACKAGE_PATTERNS</p>
-                <p>&nbsp;</p>
-                <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
-            </div>
-            <div>
-                <div class="terminal v3">
-                    <p>$ serverless deploy</p>
-                    <p>&nbsp;</p>
-                    <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
-                    <p>&nbsp;</p>
-                    <p>
-                        <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
-                    </p>
-                    <p>&nbsp;</p>
-                    <p class="text-gray">functions:</p>
-                    <p class="ml-5">publisher: myapp-dev-publisher</p>
-                    <p class="ml-5">jobsWorker: myapp-dev-worker</p>
-                    <p class="text-gray">endpoints:</p>
-                    <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
-                    <p>&nbsp;</p>
-                    <p class="text-gray">2 deprecations found: run 'serverless doctor' for more details</p>
-                    <p>&nbsp;</p>
-                    <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
-                </div>
-                <div class="terminal v3">
-                    <p>$ serverless doctor</p>
-                    <p>2 deprecations triggered in the last command:</p>
-                    <p>&nbsp;</p>
-                    <p>Detected ".env" files. In the next major release variables from ".env" files will be automatically loaded into the serverless build process. Set "useDotenv: true" to adopt that behavior now.</p>
-                    <p class="text-gray">More Info: https://www.serverless.com/framework/docs/deprecations/#LOAD_VARIABLES_FROM_ENV_FILES</p>
-                    <p>&nbsp;</p>
-                    <p>Support for "package.include" and "package.exclude" will be removed with next major release. Please use "package.patterns" instead</p>
-                    <p class="text-gray">More Info: https://www.serverless.com/framework/docs/deprecations/#NEW_PACKAGE_PATTERNS</p>
-                </div>
-            </div>
-        </div>
-
-        <comments :id="8"></comments>
-
         <h2>Error</h2>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal v2">
@@ -450,6 +375,81 @@ Bugs:        github.com/serverless/serverless/issues</pre>
         </div>
 
         <comments :id="9"></comments>
+
+        <h2>Deprecations</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless deploy</p>
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading CloudFormation file to S3...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading artifacts...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading service myapp.zip file to S3 (10.28 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Validating template...</span></p>
+                <p>Serverless: <span class="text-yellow">Updating Stack...</span></p>
+                <p>Serverless: <span class="text-yellow">Checking Stack update progress...</span></p>
+                <p class="text-yellow">............................................</p>
+                <p>Serverless: <span class="text-yellow">Stack update finished...</span></p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+                <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
+                <p>Serverless: <span class="text-orange font-bold">Deprecation warnings:</span></p>
+                <p>&nbsp;</p>
+                <p class="text-orange font-bold">Detected ".env" files. In the next major release variables from ".env" files will be automatically loaded into the serverless build process. Set "useDotenv: true" to adopt that behavior now.</p>
+                <p class="text-orange">More Info: https://www.serverless.com/framework/docs/deprecations/#LOAD_VARIABLES_FROM_ENV_FILES</p>
+                <p>&nbsp;</p>
+                <p class="text-orange font-bold">Support for "package.include" and "package.exclude" will be removed with next major release. Please use "package.patterns" instead</p>
+                <p class="text-orange">More Info: https://www.serverless.com/framework/docs/deprecations/#NEW_PACKAGE_PATTERNS</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
+            </div>
+            <div>
+                <div class="terminal v3">
+                    <p>$ serverless deploy</p>
+                    <p>&nbsp;</p>
+                    <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
+                    <p>&nbsp;</p>
+                    <p>
+                        <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
+                    </p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">functions:</p>
+                    <p class="ml-5">publisher: myapp-dev-publisher</p>
+                    <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                    <p class="text-gray">endpoints:</p>
+                    <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">2 deprecations found: run 'serverless doctor' for more details</p>
+                    <p>&nbsp;</p>
+                    <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
+                </div>
+                <div class="terminal v3">
+                    <p>$ serverless doctor</p>
+                    <p>2 deprecations triggered in the last command:</p>
+                    <p>&nbsp;</p>
+                    <p>Detected ".env" files. In the next major release variables from ".env" files will be automatically loaded into the serverless build process. Set "useDotenv: true" to adopt that behavior now.</p>
+                    <p class="text-gray">More Info: https://www.serverless.com/framework/docs/deprecations/#LOAD_VARIABLES_FROM_ENV_FILES</p>
+                    <p>&nbsp;</p>
+                    <p>Support for "package.include" and "package.exclude" will be removed with next major release. Please use "package.patterns" instead</p>
+                    <p class="text-gray">More Info: https://www.serverless.com/framework/docs/deprecations/#NEW_PACKAGE_PATTERNS</p>
+                </div>
+            </div>
+        </div>
+
+        <comments :id="8"></comments>
 
         <h2>Non-interactive deployment (no TTY, e.g. CI/CD)</h2>
         <div class="prose max-w-none mb-4">
