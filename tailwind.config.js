@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+      },
       colors: {
         red: {
           DEFAULT: '#fd5750',
