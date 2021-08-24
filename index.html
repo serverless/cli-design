@@ -678,13 +678,13 @@ Bugs:        github.com/serverless/serverless/issues</pre>
                 In v3, plugins can extend the structured output with new APIs:
             </p>
             <p>
-                <code>serverless.cli.updateProgress('Message')</code>: updates the spinner to display a custom step.
+                <code>logger.updateProgress('Message')</code>: updates the spinner to display a custom step.
             </p>
             <p>
-                <code>serverless.addOutputSection('section name', 'content')</code>: adds a new section to the "Service information".
+                <code>serverless.addServiceOutputSection('section name', 'content')</code>: adds a new section to the "Service information".
             </p>
             <p>
-                It is not decided yet whether <code>console.log()</code> plugin output will be hidden by default (and visible with <code>--verbose</code>) or not.
+                Other APIs will be introduced to log warnings and messages at <code>--verbose</code> level.
                 The example below is inspired from a project using the following plugins: warmer, webpack, storage and domain manager.
             </p>
         </div>
