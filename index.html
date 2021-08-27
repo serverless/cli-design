@@ -904,7 +904,7 @@ webpack compiled with 2 warnings in 3341 ms
         </div>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal v2">
-                <p>$ serverless deploy --verbose</p>
+                <p>$ serverless deploy</p>
                 <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
                 <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
@@ -921,7 +921,7 @@ webpack compiled with 2 warnings in 3341 ms
             </div>
 
             <div class="terminal v3">
-                <p>$ serverless deploy --verbose</p>
+                <p>$ serverless deploy</p>
                 <p>&nbsp;</p>
                 <p>Deploying myapp in stage dev <span class="text-gray">(us-east-1)</span></p>
                 <p>&nbsp;</p>
@@ -945,6 +945,124 @@ webpack compiled with 2 warnings in 3341 ms
                     <span class="text-red">{{ frames[frame] }}</span>
                     Validating CloudFormation template
                 </p>
+            </div>
+        </div>
+
+        <comments :id="16"></comments>
+
+        <h2>Package</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless package</p>
+                <p>Serverless: <span class="text-yellow">Packaging service...</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless package</p>
+                <p>&nbsp;</p>
+                <p>Packaging myapp for stage dev</p>
+                <p>&nbsp;</p>
+                <p v-if="step >= 0 && step < 2">
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    Packaging
+                    <span class="text-gray">({{ second }}s)</span>
+                </p>
+                <p v-if="step >= 2">
+                    <span class="text-red">✔</span> Service packaged <span class="text-gray">(5s)</span>
+                </p>
+            </div>
+        </div>
+
+        <comments :id="17"></comments>
+
+        <h2>Deploy single function</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless deploy function -f hello</p>
+                <p>Serverless: <span class="text-yellow">Packaging function: hello</span></p>
+                <p>Serverless: <span class="text-yellow">Excluding development dependencies...</span></p>
+                <p>Serverless: <span class="text-yellow">Uploading function: hello (3.41 KB)...</span></p>
+                <p>Serverless: <span class="text-yellow">Successfully deployed function: hello</span></p>
+                <p>Serverless: <span class="text-yellow">Configuration did not change. Skipping function configuration update.</span></p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless deploy function -f hello</p>
+                <p>&nbsp;</p>
+                <p>Deploying function hello in stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p v-if="step === 0">
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    Packaging function
+                    <span class="text-gray">({{ second }}s)</span>
+                </p>
+                <p v-if="step === 1">
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    Excluding development dependencies
+                    <span class="text-gray">({{ second }}s)</span>
+                </p>
+                <p v-if="step === 2">
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    Uploading function (3.41 KB)
+                    <span class="text-gray">({{ second }}s)</span>
+                </p>
+                <p v-if="step >= 3">
+                    <span class="text-red">✔</span> Function deployed <span class="text-gray">(8s)</span>
+                </p>
+            </div>
+        </div>
+
+        <comments :id="18"></comments>
+
+        <h2>Info</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless info</p>
+                <p class="text-yellow underline">Service Information</p>
+                <p><span class="text-yellow">service:</span> myapp</p>
+                <p><span class="text-yellow">stage:</span> dev</p>
+                <p><span class="text-yellow">region:</span> us-east-1</p>
+                <p><span class="text-yellow">stack:</span> myapp-dev</p>
+                <p><span class="text-yellow">resources:</span> 14</p>
+                <p class="text-yellow">api keys:</p>
+                <p class="ml-5">None</p>
+                <p class="text-yellow">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="text-yellow">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-yellow">layers:</p>
+                <p class="ml-5">None</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless info</p>
+                <p class="text-gray">functions:</p>
+                <p class="ml-5">publisher: myapp-dev-publisher</p>
+                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="text-gray">endpoints:</p>
+                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+            </div>
+        </div>
+
+        <comments :id="19"></comments>
+
+        <h2>Logs</h2>
+        <div class="prose max-w-none mb-4">
+            <p>
+                There are no changes planned for the logs command in v3.0.
+            </p>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless logs -f hello</p>
+                <pre class="text-gray whitespace-pre-wrap">START RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470 Version: $LATEST
+END RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470
+REPORT RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470	Duration: 2.56 ms	Billed Duration: 3 ms	Memory Size: 1024 MB	Max Memory Used: 64 MB	Init Duration: 158.78 ms</pre>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless logs -f hello</p>
+                <pre class="text-gray whitespace-pre-wrap">START RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470 Version: $LATEST
+END RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470
+REPORT RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470	Duration: 2.56 ms	Billed Duration: 3 ms	Memory Size: 1024 MB	Max Memory Used: 64 MB	Init Duration: 158.78 ms</pre>
             </div>
         </div>
 
