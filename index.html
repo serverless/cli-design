@@ -1066,6 +1066,141 @@ REPORT RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470	Duration: 2.56 ms	Billed 
             </div>
         </div>
 
+        <h2>Help</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless --help</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Commands</p>
+                <pre class="text-gray whitespace-pre-wrap">* You can run commands with "serverless" or the shortcut "sls"
+* Pass "--no-color" to disable CLI colors
+* Pass "--help" after any &lt;command&gt; for contextual help</pre>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Interactive Quickstart</p>
+                <pre class="text-gray whitespace-pre-wrap">* Run serverless (or shortcut sls) without any arguments to initialize an interactive setup
+  of functionalities related to given service or current environment
+* Pass "--help-interactive" for contextual help on interactive CLI options</pre>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Serverless Components</p>
+                <pre class="text-gray whitespace-pre-wrap">* Run serverless (or shortcut sls) in context of a component service to initialize a components CLI
+* Pass "--help-components" for contextual help on Serverless Components</pre>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Framework</p>
+                <pre class="text-gray whitespace-pre-wrap">* Documentation: http://slss.io/docs</pre>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Environment Variables</p>
+                <pre class="text-gray whitespace-pre-wrap">* Set SLS_DEBUG=* to see debugging logs
+* Set SLS_WARNING_DISABLE=* to hide warnings from the output
+* Set SLS_DEPRECATION_DISABLE=* to disable deprecation logs
+* Set SLS_MAX_CONCURRENT_ARTIFACTS_UPLOADS to control the maximum S3 upload SDK requests that are sent in parallel during the deployment of the service's artifacts. The default is 3. Note: increasing this too high might, actually, downgrade the overall upload speed</pre>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">General Commands</p>
+                <p>&nbsp;</p>
+                <p><span class="text-yellow">deploy</span> ........................ Deploy a Serverless service</p>
+                <p><span class="text-yellow">deploy function</span> ............... Deploy a single function from the service</p>
+                <p><span class="text-yellow">deploy list</span> ................... List deployed version of your Serverless Service</p>
+                <p><span class="text-yellow">deploy list functions</span> ......... List all the deployed functions and their versions</p>
+                <p><span class="text-yellow">info</span> .......................... Display information about the service</p>
+                <p><span class="text-yellow">invoke</span> ........................ Invoke a deployed function</p>
+                <p><span class="text-yellow">invoke local</span> .................. Invoke function locally</p>
+                <p><span class="text-yellow">logs</span> .......................... Output the logs of a deployed function</p>
+                <p><span class="text-yellow">metrics</span> ....................... Show metrics for a specific function</p>
+                <p><span class="text-yellow">remove</span> ........................ Remove Serverless service and all resources</p>
+                <p><span class="text-yellow">rollback</span> ...................... Rollback the Serverless service to a specific deployment</p>
+                <p><span class="text-yellow">rollback function</span> ............. Rollback the function to the previous version</p>
+                <p><span class="text-yellow">studio</span> ........................ Develop a Serverless application in the cloud.</p>
+                <p><span class="text-yellow">test</span> .......................... Run HTTP tests</p>
+                <p><span class="text-yellow">package</span> ....................... Packages a Serverless service</p>
+                <p><span class="text-yellow">plugin install</span> ................ Install and add a plugin to your service</p>
+                <p><span class="text-yellow">plugin uninstall</span> .............. Uninstall and remove a plugin from your service</p>
+                <p><span class="text-yellow">print</span> ......................... Print your compiled and resolved config file</p>
+                <p><span class="text-yellow">config</span> ........................ Configure Serverless</p>
+                <p><span class="text-yellow">config credentials</span> ............ Configures a new provider profile for the Serverless Framework</p>
+                <p><span class="text-yellow">config tabcompletion install</span> .. Install a tab completion for chosen shell</p>
+                <p><span class="text-yellow">config tabcompletion uninstall</span>&nbsp; Uninstall a tab completion</p>
+                <p><span class="text-yellow">create</span> ........................ Create new Serverless service</p>
+                <p><span class="text-yellow">dashboard</span> ..................... Open the Serverless dashboard</p>
+                <p><span class="text-yellow">generate-event</span> ................ Generate event</p>
+                <p><span class="text-yellow">install</span> ....................... Install a Serverless service from GitHub or a plugin from the Serverless registry</p>
+                <p><span class="text-yellow">login</span> ......................... Login or sign up for Serverless</p>
+                <p><span class="text-yellow">logout</span> ........................ Logout from Serverless</p>
+                <p><span class="text-yellow">output get</span> .................... Get value of dashboard deployment profile parameter</p>
+                <p><span class="text-yellow">output list</span> ................... List all dashboard deployment profile parameters</p>
+                <p><span class="text-yellow">param get</span> ..................... Get value of dashboard service output</p>
+                <p><span class="text-yellow">param list</span> .................... List all dashboard deployment profile parameters</p>
+                <p><span class="text-yellow">plugin list</span> ................... Lists all available plugins</p>
+                <p><span class="text-yellow">plugin search</span> ................. Search for plugins</p>
+                <p><span class="text-yellow">slstats</span> ....................... Enable or disable stats</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Plugins</p>
+                <p>...</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow underline">Commands by plugin</p>
+                <p>&nbsp;</p>
+                <p>...</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless --help</p>
+                <p class="text-red">Serverless Framework v3.0.0</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Usage</p>
+                <p>&nbsp; serverless &lt;command&gt; &lt;options&gt;</p>
+                <p>&nbsp; sls &lt;command&gt; &lt;options&gt;</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Get started</p>
+                <p>&nbsp; Run <span class="text-red">serverless</span> to interactively setup a project.</p>
+                <p>&nbsp; Documentation: <span class="underline">http://slss.io/docs</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Monitoring</p>
+                <p>&nbsp; Enable performance and error monitoring with the Serverless Dashboard.</p>
+                <p>&nbsp; Learn more: <span class="underline">https://serverless.com/monitoring</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Plugins</p>
+                <p>&nbsp; Extend the Serverless Framework with plugins.</p>
+                <p>&nbsp; Explore plugins: <span class="underline">https://serverless.com/plugins</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">Options</p>
+                <pre class="whitespace-pre-wrap">&nbsp; <span class="text-red">-h, --help</span>            Display help for the given command
+&nbsp; <span class="text-red">--no-color</span>            Disable CLI colors
+&nbsp; <span class="text-red">--verbose</span>             Disable interactivity and enable extra logging messages
+&nbsp; <span class="text-red">--version</span>             Display the framework version</pre>
+                <p>&nbsp;</p>
+                <p class="text-gray">Main commands</p>
+                <pre class="whitespace-pre-wrap">
+&nbsp; <span class="text-red">deploy</span>                Deploy a Serverless service
+&nbsp; <span class="text-red">deploy function</span>       Deploy a single function from the service
+&nbsp; <span class="text-red">info</span>                  Display information about the service
+&nbsp; <span class="text-red">invoke</span>                Invoke a deployed function
+&nbsp; <span class="text-red">invoke local</span>          Invoke function locally
+&nbsp; <span class="text-red">logs</span>                  Output the logs of a deployed function</pre>
+                <p>&nbsp;</p>
+                <p class="text-gray">All commands</p>
+                <pre class="whitespace-pre-wrap">
+&nbsp; <span class="text-red">package</span>               Package a Serverless service
+&nbsp; <span class="text-red">remove</span>                Remove Serverless service and all resources
+&nbsp; <span class="text-red">deploy list</span>           List deployed version of your Serverless Service
+&nbsp; <span class="text-red">deploy list functions</span> List all the deployed functions and their versions
+&nbsp; <span class="text-red">rollback</span>              Rollback the Serverless service to a specific deployment
+&nbsp; <span class="text-red">rollback function</span>     Rollback the function to the previous version
+&nbsp; <span class="text-red">test</span>                  Run HTTP tests
+&nbsp; <span class="text-red">print</span>                 Print your compiled and resolved config file
+&nbsp; <span class="text-red">generate-event</span>        Generate an AWS Lambda event
+&nbsp; <span class="text-red">config</span>                Configure Serverless
+&nbsp; <span class="text-red">dashboard</span>             Open the Serverless Dashboard
+&nbsp; <span class="text-red">login</span>                 Login or sign up for the Serverless Dashboard
+&nbsp; <span class="text-red">logout</span>                Logout from the Serverless Dashboard
+&nbsp; <span class="text-red">output</span>                List and retrieve Serverless Dashboard outputs
+&nbsp; <span class="text-red">param</span>                 List and retrieve Serverless Dashboard parameters
+&nbsp; <span class="text-red">plugin list</span>           Lists all available plugins
+&nbsp; <span class="text-red">plugin search</span>         Search for plugins
+&nbsp; <span class="text-red">plugin install</span>        Install and add a plugin to your service
+&nbsp; <span class="text-red">plugin uninstall</span>      Uninstall and remove a plugin from your service
+                </pre>
+                <p class="text-gray">Plugin commands</p>
+                <p>&nbsp; ...</p>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
