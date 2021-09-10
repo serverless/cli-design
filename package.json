@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@serverless/utils": "^5.11.0",
     "@tailwindcss/typography": "^0.4.1",
     "chalk": "^4.1.1",
     "ora": "^5.4.1"
@@ -11,6 +12,7 @@
   },
   "scripts": {
     "build": "tailwindcss -i ./styles.css -o styles.min.css",
+    "style-demo": "./style-demo.js",
     "watch": "tailwindcss -i ./styles.css -o styles.min.css --watch"
   }
 }
