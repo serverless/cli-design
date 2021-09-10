@@ -2,6 +2,7 @@
   "dependencies": {
     "@serverless/utils": "^5.11.0",
     "@tailwindcss/typography": "^0.4.1",
+    "ansi-styles": "^6.1.0",
     "chalk": "^4.1.1",
     "ora": "^5.4.1"
   },
