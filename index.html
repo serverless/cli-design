@@ -378,6 +378,106 @@ Bugs:        github.com/serverless/serverless/issues</pre>
             </div>
         </div>
 
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless deploy &nbsp; <span class="text-gray"># User error</span></p>
+                <p>&nbsp;</p>
+                <p class="text-yellow">&nbsp;Serverless Error ----------------------------------------</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;&nbsp;Configuration error at 'functions.hello.timeout': should be integer</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;&nbsp;Learn more about configuration validation here: http://slss.io/configuration-validation</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow ml-5">Get Support --------------------------------------------</p>
+                <p class="ml-10"><span class="text-yellow">Docs:</span> &nbsp; &nbsp; docs.serverless.com</p>
+                <p class="ml-10"><span class="text-yellow">Bugs:</span> &nbsp; &nbsp; github.com/serverless/serverless/issues</p>
+                <p class="ml-10"><span class="text-yellow">Issues:</span> &nbsp; forum.serverless.com</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow ml-5">Your Environment Information ---------------------------</p>
+                <p class="ml-10 text-yellow whitespace-pre">Operating System:          darwin</p>
+                <p class="ml-10 text-yellow whitespace-pre">Node Version:              15.14.0</p>
+                <p class="ml-10 text-yellow whitespace-pre">Framework Version:         2.52.1</p>
+                <p class="ml-10 text-yellow whitespace-pre">Plugin Version:            5.4.3</p>
+                <p class="ml-10 text-yellow whitespace-pre">SDK Version:               4.2.5</p>
+                <p class="ml-10 text-yellow whitespace-pre">Components Version:        3.14.0</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless deploy &nbsp; <span class="text-gray"># User error</span></p>
+                <p>&nbsp;</p>
+                <p>Deploying myapp to stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p class="text-red">✖ Stack myapp-dev failed to deploy <span class="text-gray">(0s)</span></p>
+                <p>&nbsp;</p>
+                <pre class="text-gray">Environment  darwin, node v15.14.0, framework v2.51.2, plugin v5.4.3, SDK v4.2.3
+Credentials: Local credentials, "default" profile
+Docs:        docs.serverless.com
+Support:     forum.serverless.com
+Bugs:        github.com/serverless/serverless/issues</pre>
+                <p>&nbsp;</p>
+                <p class="text-red">Error:</p>
+                <p>Configuration error at 'functions.hello.timeout': should be integer</p>
+                <p>&nbsp;</p>
+                <p>Learn more about configuration validation here: http://slss.io/configuration-validation</p>
+            </div>
+        </div>
+
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless deploy &nbsp; <span class="text-gray"># Programmer error</span></p>
+                <p>&nbsp;</p>
+                <p class="text-yellow">&nbsp;Type Error ----------------------------------------</p>
+                <p>&nbsp;</p>
+                <pre>&nbsp; &nbsp;TypeError: Oh no, an internal error happened
+      at Object.aws:package:finalize:addExportNameForOutputs [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:91:15)
+      at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
+      at PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:16)
+      at Object.package:finalize [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:83:69)
+      at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
+      at async PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:5)
+      at async /Users/matthieu/dev/serverless/serverless/scripts/serverless.js:803:9</pre>
+                <p>&nbsp;</p>
+                <p class="text-red">&nbsp; &nbsp; For debugging logs, run again after setting the "SLS_DEBUG=*" environment variable.</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow ml-5">Get Support --------------------------------------------</p>
+                <p class="ml-10"><span class="text-yellow">Docs:</span> &nbsp; &nbsp; docs.serverless.com</p>
+                <p class="ml-10"><span class="text-yellow">Bugs:</span> &nbsp; &nbsp; github.com/serverless/serverless/issues</p>
+                <p class="ml-10"><span class="text-yellow">Issues:</span> &nbsp; forum.serverless.com</p>
+                <p>&nbsp;</p>
+                <p class="text-yellow ml-5">Your Environment Information ---------------------------</p>
+                <p class="ml-10 text-yellow whitespace-pre">Operating System:          darwin</p>
+                <p class="ml-10 text-yellow whitespace-pre">Node Version:              15.14.0</p>
+                <p class="ml-10 text-yellow whitespace-pre">Framework Version:         2.52.1</p>
+                <p class="ml-10 text-yellow whitespace-pre">Plugin Version:            5.4.3</p>
+                <p class="ml-10 text-yellow whitespace-pre">SDK Version:               4.2.5</p>
+                <p class="ml-10 text-yellow whitespace-pre">Components Version:        3.14.0</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless deploy &nbsp; <span class="text-gray"># Programmer error</span></p>
+                <p>&nbsp;</p>
+                <p>Deploying myapp to stage dev <span class="text-gray">(us-east-1)</span></p>
+                <p>&nbsp;</p>
+                <p class="text-red">✖ Stack myapp-dev failed to deploy <span class="text-gray">(0s)</span></p>
+                <p>&nbsp;</p>
+                <pre class="text-gray">Environment  darwin, node v15.14.0, framework v2.51.2, plugin v5.4.3, SDK v4.2.3
+Credentials: Local credentials, "default" profile
+Docs:        docs.serverless.com
+Support:     forum.serverless.com
+Bugs:        github.com/serverless/serverless/issues</pre>
+                <p>&nbsp;</p>
+                <p class="text-red">Error:</p>
+                <pre>TypeError: Oh no, an internal error happened
+  at Object.aws:package:finalize:addExportNameForOutputs [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:91:15)
+  at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
+  at PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:16)
+  at Object.package:finalize [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:83:69)
+  at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
+  at async PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:5)
+  at async /Users/matthieu/dev/serverless/serverless/scripts/serverless.js:803:9</pre>
+                <p>&nbsp;</p>
+                <p class="text-gray">Run again with the '--verbose' option to get more logs.</p>
+            </div>
+        </div>
+
         <comments :id="9"></comments>
 
         <h2>Warnings</h2>
