@@ -1301,6 +1301,227 @@ REPORT RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470	Duration: 2.56 ms	Billed 
             </div>
         </div>
 
+        <h2>List deploys</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless deploy list</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Listing deployments:</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> -------------</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Timestamp: 1631541832701</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Datetime: 2021-09-13T14:03:52.701Z</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Files:</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> - compiled-cloudformation-template.json</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> - sls-demo-api.zip</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> -------------</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Timestamp: 1631541937617</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Datetime: 2021-09-13T14:05:37.617Z</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Files:</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> - compiled-cloudformation-template.json</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> - sls-demo-api.zip</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless deploy list</p>
+                <p><span class="text-red">•</span> 2021-09-13 14:03:52 UTC <span class="text-gray">(1631541832701)</span></p>
+                <p>&nbsp; Files:</p>
+                <p>&nbsp; - compiled-cloudformation-template.json</p>
+                <p>&nbsp; - sls-demo-api.zip</p>
+                <p><span class="text-red">•</span> 2021-09-13 14:05:37 UTC <span class="text-gray">(1631541937617)</span></p>
+                <p>&nbsp; Files:</p>
+                <p>&nbsp; - compiled-cloudformation-template.json</p>
+                <p>&nbsp; - sls-demo-api.zip</p>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless deploy list functions</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Listing functions and their last 5 versions:</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> -------------</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> hello: 8, 9, 10, 11, 12</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> world: 8, 9, 10, 11, 12</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless deploy list functions</p>
+                <p><span class="text-red">•</span> hello</p>
+                <p>&nbsp; Last 5 versions: 8, 9, 10, 11, 12</p>
+                <p><span class="text-red">•</span> world</p>
+                <p>&nbsp; Last 5 versions: 8, 9, 10, 11, 12</p>
+            </div>
+        </div>
+
+        <h2>Plugin management</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless plugin list</p>
+                <p><span class="text-yellow underline">@agiledigital/serverless-sns-sqs-lambda</span> - Provide the lambda function with the snsSqs event, the plugin will add the AWS SNS topic and subscription, SQS queue and dead letter queue, and the role need for the lambda.</p>
+                <p><span class="text-yellow underline">@digitalmaas/serverless-plugin-sqs-alarms</span> - Simplifies the setup of CloudWatch Alarms to monitor the visible messages in an SQS queue.</p>
+                <p>...</p>
+                <p>&nbsp;</p>
+                <pre>To install a plugin run 'serverless plugin install --name plugin-name-here'
+
+It will be automatically downloaded and added to your package.json and serverless.yml file</pre>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless plugin list</p>
+                <p class="text-gray"><span class="text-red">•</span> <span class="text-white">@agiledigital/serverless-sns-sqs-lambda</span> Provide the lambda function with the snsSqs event, the plugin will add the AWS SNS topic and subscription, SQS queue and dead letter queue, and the role need for the lambda.</p>
+                <p class="text-gray"><span class="text-red">•</span> <span class="text-white">@digitalmaas/serverless-plugin-sqs-alarms</span> Simplifies the setup of CloudWatch Alarms to monitor the visible messages in an SQS queue.</p>
+                <p>...</p>
+                <p>&nbsp;</p>
+                <pre>Install a plugin by running:
+&nbsp; serverless plugin install --name ...
+
+It will be automatically downloaded and added to package.json and serverless.yml</pre>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless plugin search -q serverless-lift</p>
+                <p class="text-yellow">1 plugin(s) found for your search query "serverless-lift"</p>
+                <p>&nbsp;</p>
+                <p><span class="text-yellow underline">serverless-lift</span> - Deploy high-level components such as static websites, buckets, queues, webhooks..</p>
+                <p>&nbsp;</p>
+                <pre>To install a plugin run 'serverless plugin install --name plugin-name-here'
+
+It will be automatically downloaded and added to your package.json and serverless.yml file</pre>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless plugin search -q serverless-lift</p>
+                <p>1 plugin(s) found matching "serverless-lift":</p>
+                <p>&nbsp;</p>
+                <p class="text-gray"><span class="text-red">•</span> <span class="text-white">serverless-lift</span> Deploy high-level components such as static websites, buckets, queues, webhooks..</p>
+                <p>&nbsp;</p>
+                <pre>Install a plugin by running:
+&nbsp; serverless plugin install --name ...
+
+It will be automatically downloaded and added to package.json and serverless.yml</pre>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless plugin install --name=serverless-lift</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Creating an empty package.json file in your service directory</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Installing plugin "serverless-lift@latest" (this might take a few seconds...)</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Successfully installed "serverless-lift@latest"</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless plugin install --name=serverless-lift</p>
+                <p v-if="step === 0">
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    Creating an empty package.json file
+                    <span class="text-gray">({{ second }}s)</span>
+                </p>
+                <p v-if="step === 1 || step === 2">
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    Installing plugin "serverless-lift"
+                    <span class="text-gray">({{ second }}s)</span>
+                </p>
+                <p v-if="step >= 3">
+                    <span class="text-red">✔</span> Plugin "serverless-lift" installed <span class="text-gray">(8s)</span>
+                </p>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless plugin uninstall --name=serverless-lift</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Uninstalling plugin "serverless-lift" (this might take a few seconds...)</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Successfully uninstalled "serverless-lift"</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless plugin uninstall --name=serverless-lift</p>
+                <p v-if="step === 0 || step === 1">
+                    <span class="text-red">{{ frames[frame] }}</span>
+                    Uninstalling plugin "serverless-lift"
+                    <span class="text-gray">({{ second }}s)</span>
+                </p>
+                <p v-if="step >= 2">
+                    <span class="text-red">✔</span> Plugin "serverless-lift" uninstalled <span class="text-gray">(5s)</span>
+                </p>
+            </div>
+        </div>
+
+        <h2>Dashboard commands</h2>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless login</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Logging you in via your default browser...</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> If your browser does not open automatically, please open the URL: https://app.serverless.com?client=cli&transactionId=abcdefg</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> You sucessfully logged in to Serverless.</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Please run 'serverless' to configure your service</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless login</p>
+                <p>Logging in the Serverless Dashboard via the browser</p>
+                <p class="text-gray">If your browser does not open automatically, please open this URL: https://app.serverless.com?client=cli&transactionId=abcdefg</p>
+                <p>&nbsp;</p>
+                <p><span class="text-red">✔</span> You are now logged in the Serverless Dashboard</p>
+                <p>&nbsp;</p>
+                <p>Run 'serverless' to add your service to the Serverless Dashboard</p>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless logout</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> You successfully logged out of Serverless.</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless logout</p>
+                <p><span class="text-red">✔</span> You are now logged out of the Serverless Dashboard</p>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless param list</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Using provider credentials, configured via dashboard: https://app.serverless.com/abc/apps/sls-cli-design/sls-cli-design-api/prod/us-east-1/providers</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Stored parameters:</p>
+                <p>&nbsp;</p>
+                <pre><span class="font-bold">Name  | Value</span>
+test  | value
+test2 | value2</pre>
+                <p>&nbsp;</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless param list</p>
+                <p><span class="text-red">•</span> test: value</p>
+                <p><span class="text-red">•</span> test2: value2</p>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless param get --name=test</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Using provider credentials, configured via dashboard: https://app.serverless.com/abc/apps/sls-cli-design/sls-cli-design-api/prod/us-east-1/providers</p>
+                <p>value</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless param get --name=test</p>
+                <p>value</p>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless output list</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Using provider credentials, configured via dashboard: https://app.serverless.com/abc/apps/sls-cli-design/sls-cli-design-api/prod/us-east-1/providers</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Stored outputs:</p>
+                <p>&nbsp;</p>
+                <pre><span class="font-bold">Name  | Value</span>
+test  | value</pre>
+                <p>&nbsp;</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless output list</p>
+                <p><span class="text-red">•</span> test: value</p>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless output get --name=test</p>
+                <p class="text-yellow"><span class="text-white">Serverless:</span> Using provider credentials, configured via dashboard: https://app.serverless.com/abc/apps/sls-cli-design/sls-cli-design-api/prod/us-east-1/providers</p>
+                <p>value</p>
+            </div>
+            <div class="terminal v3">
+                <p>$ serverless output get --name=test</p>
+                <p>value</p>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
