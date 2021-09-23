@@ -771,26 +771,26 @@ Bugs:        github.com/serverless/serverless/issues</pre>
         <div class="prose max-w-none mb-4">
             <p>
                 With v2.x, plugins log to the output using <code>console.log()</code> or <code>serverless.cli.log()</code>.
-                In v3, plugins can extend the structured output with new APIs:
+                In v3, plugins can extend the structured output with new APIs.
             </p>
         </div>
-        <pre class="terminal">class MyPlugin {
-    constructor(serverless, options, { logger }) {
+<!--        <pre class="terminal">class MyPlugin {-->
+<!--    constructor(serverless, options, { logger }) {-->
 
-        <span class="text-gray">// Creates/updates a spinner</span>
-        logger.progress.update('id', 'Message');
-        <span class="text-gray">// Removes the spinner (when the corresponding task is done)</span>
-        logger.progress.update('id', 'Message');
+<!--        <span class="text-gray">// Creates/updates a spinner</span>-->
+<!--        logger.progress.update('id', 'Message');-->
+<!--        <span class="text-gray">// Removes the spinner (when the corresponding task is done)</span>-->
+<!--        logger.progress.update('id', 'Message');-->
 
-        <span class="text-gray">// Adds a new section to the "Service information"</span>
-        serverless.addServiceOutputSection('section name', 'content');
+<!--        <span class="text-gray">// Adds a new section to the "Service information"</span>-->
+<!--        serverless.addServiceOutputSection('section name', 'content');-->
 
-        <span class="text-gray">// Logs a warning message</span>
-        logger.warning('Message');
-        <span class="text-gray">// Logs a message for the --verbose level</span>
-        logger.info('Message');
-        <span class="text-gray">// Logs a message for the --debug level</span>
-        logger.debug('Message');</pre>
+<!--        <span class="text-gray">// Logs a warning message</span>-->
+<!--        logger.warning('Message');-->
+<!--        <span class="text-gray">// Logs a message for the &#45;&#45;verbose level</span>-->
+<!--        logger.info('Message');-->
+<!--        <span class="text-gray">// Logs a message for the &#45;&#45;debug level</span>-->
+<!--        logger.debug('Message');</pre>-->
         <div class="prose max-w-none mb-4">
             <p>
                 The example below is inspired from a project using the following plugins: warmer, webpack, storage and domain manager.
