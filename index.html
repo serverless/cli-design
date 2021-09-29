@@ -1147,21 +1147,18 @@ webpack compiled with 2 warnings in 3341 ms
         <comments :id="19"></comments>
 
         <h2>Logs</h2>
-        <div class="prose max-w-none mb-4">
-            <p>
-                There are no changes planned for the logs command in v3.0.
-            </p>
-        </div>
         <div class="grid xl:grid-cols-2 gap-4">
             <div class="terminal v2">
                 <p>$ serverless logs -f hello</p>
                 <pre class="text-gray whitespace-pre-wrap">START RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470 Version: $LATEST
+<span class="text-green">2021-09-29 11:46:15.267 (+02:00)</span>	<span class="text-yellow">953a16dd-b148-4aa6-a0bb-f1a1921e94ce</span>	<span class="text-white">INFO	Hello world!</span>
 END RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470
 REPORT RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470	Duration: 2.56 ms	Billed Duration: 3 ms	Memory Size: 1024 MB	Max Memory Used: 64 MB	Init Duration: 158.78 ms</pre>
             </div>
             <div class="terminal v3">
                 <p>$ serverless logs -f hello</p>
                 <pre class="text-gray whitespace-pre-wrap">START RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470 Version: $LATEST
+2021-09-29 11:46:15.267 (+02:00)	953a16dd-b148-4aa6-a0bb-f1a1921e94ce	<span class="text-white">INFO	Hello world!</span>
 END RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470
 REPORT RequestId: 0da79ff0-8d8b-44e6-91c8-5e0ccbdac470	Duration: 2.56 ms	Billed Duration: 3 ms	Memory Size: 1024 MB	Max Memory Used: 64 MB	Init Duration: 158.78 ms</pre>
             </div>
