@@ -44,10 +44,9 @@
                 <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
             </p>
             <p>&nbsp;</p>
+            <p><span class="text-gray">endpoints:</span> https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
             <p class="text-gray">functions:</p>
-            <p class="ml-5">home: myapp-dev-home</p>
-            <p class="text-gray">endpoints:</p>
-            <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+            <p class="ml-5">index: myapp-dev-index <span class="text-gray">(10 KB)</span></p>
             <p>&nbsp;</p>
             <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
         </div>
@@ -150,10 +149,11 @@
                 <p class="text-yellow">api keys:</p>
                 <p class="ml-5">None</p>
                 <p class="text-yellow">endpoints:</p>
-                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/foo</p>
+                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/bar</p>
                 <p class="text-yellow">functions:</p>
-                <p class="ml-5">publisher: myapp-dev-publisher</p>
-                <p class="ml-5">jobsWorker: myapp-dev-worker</p>
+                <p class="ml-5">foo: myapp-dev-foo</p>
+                <p class="ml-5">bar: myapp-dev-bar</p>
                 <p class="text-yellow">layers:</p>
                 <p class="ml-5">None</p>
                 <p>Serverless: <span class="text-yellow">Removing old service artifacts from S3...</span></p>
@@ -170,11 +170,12 @@
                     <span class="text-red">✔</span> Service deployed to stack myapp-dev <span class="text-gray">(31s)</span>
                 </p>
                 <p>&nbsp;</p>
-                <p class="text-gray">functions:</p>
-                <p class="ml-5">publisher: myapp-dev-publisher <span class="text-gray">(10 KB)</span></p>
-                <p class="ml-5">jobsWorker: myapp-dev-worker <span class="text-gray">(10 KB)</span></p>
                 <p class="text-gray">endpoints:</p>
-                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/foo</p>
+                <p class="ml-5">GET - https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/bar</p>
+                <p class="text-gray">functions:</p>
+                <p class="ml-5">foo: myapp-dev-foo <span class="text-gray">(10 KB)</span></p>
+                <p class="ml-5">bar: myapp-dev-bar <span class="text-gray">(10 KB)</span></p>
                 <p>&nbsp;</p>
                 <p class="text-gray">Toggle on monitoring with the Serverless Dashboard: run "serverless"</p>
             </div>
