@@ -432,13 +432,13 @@ Bugs:        github.com/serverless/serverless/issues</pre>
                 <p class="text-yellow">&nbsp;Type Error ----------------------------------------</p>
                 <p>&nbsp;</p>
                 <pre>&nbsp; &nbsp;TypeError: Oh no, an internal error happened
-      at Object.aws:package:finalize:addExportNameForOutputs [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:91:15)
-      at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
-      at PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:16)
-      at Object.package:finalize [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:83:69)
-      at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
-      at async PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:5)
-      at async /Users/matthieu/dev/serverless/serverless/scripts/serverless.js:803:9</pre>
+      at Object.aws:package:finalize:addExportNameForOutputs [as hook] (/Users/serverless/lib/plugins/aws/package/index.js:91:15)
+      at PluginManager.invoke (/Users/serverless/lib/classes/PluginManager.js:580:20)
+      at PluginManager.spawn (/Users/serverless/lib/classes/PluginManager.js:602:16)
+      at Object.package:finalize [as hook] (/Users/serverless/lib/plugins/aws/package/index.js:83:69)
+      at PluginManager.invoke (/Users/serverless/lib/classes/PluginManager.js:580:20)
+      at async PluginManager.spawn (/Users/serverless/lib/classes/PluginManager.js:602:5)
+      at async /Users/serverless/scripts/serverless.js:803:9</pre>
                 <p>&nbsp;</p>
                 <p class="text-red">&nbsp; &nbsp; For debugging logs, run again after setting the "SLS_DEBUG=*" environment variable.</p>
                 <p>&nbsp;</p>
@@ -470,15 +470,144 @@ Bugs:        github.com/serverless/serverless/issues</pre>
                 <p>&nbsp;</p>
                 <p class="text-red">Error:</p>
                 <pre>TypeError: Oh no, an internal error happened
-  at Object.aws:package:finalize:addExportNameForOutputs [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:91:15)
-  at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
-  at PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:16)
-  at Object.package:finalize [as hook] (/Users/matthieu/dev/serverless/serverless/lib/plugins/aws/package/index.js:83:69)
-  at PluginManager.invoke (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:580:20)
-  at async PluginManager.spawn (/Users/matthieu/dev/serverless/serverless/lib/classes/PluginManager.js:602:5)
-  at async /Users/matthieu/dev/serverless/serverless/scripts/serverless.js:803:9</pre>
+  at Object.aws:package:finalize:addExportNameForOutputs [as hook] (/Users/serverless/lib/plugins/aws/package/index.js:91:15)
+  at PluginManager.invoke (/Users/serverless/lib/classes/PluginManager.js:580:20)
+  at PluginManager.spawn (/Users/serverless/lib/classes/PluginManager.js:602:16)
+  at Object.package:finalize [as hook] (/Users/serverless/lib/plugins/aws/package/index.js:83:69)
+  at PluginManager.invoke (/Users/serverless/lib/classes/PluginManager.js:580:20)
+  at async PluginManager.spawn (/Users/serverless/lib/classes/PluginManager.js:602:5)
+  at async /Users/serverless/scripts/serverless.js:803:9</pre>
                 <p>&nbsp;</p>
                 <p class="text-gray">Run again with the '--verbose' option to get more logs.</p>
+            </div>
+        </div>
+        <div class="prose max-w-none mb-4">
+            <p>The errors shown above are <em>fatal</em> errors: the process stops because an error was thrown.</p>
+            <p>
+                Some errors must not stop the process, for example (but not limited to) when running applications with serverless-offline.
+                Here is what these errors would look like:
+            </p>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+            <div class="terminal v2">
+                <p>$ serverless offline &nbsp; <span class="text-gray"># Non-fatal error</span></p>
+                <p>Serverless: <span class="text-yellow">Bundling with Webpack...</span></p>
+                <pre>assets by status 0 bytes [cached] 1 asset
+
+<span class="font-bold text-red">ERROR</span> in <span class="font-bold text-green">main</span>
+<span class="font-bold">Module <span class="text-red">not found</span>: <span class="text-red">Error</span>: Can't resolve './src' in '/Users/serverless/demo'</span>
+resolve './src' in '/Users/serverless/demo'
+  using description file: /Users/serverless/demo/package.json (relative path: .)
+    using description file: /Users/serverless/demo/package.json (relative path: ./src)
+      no extension
+        <span class="font-bold text-red">/Users/serverless/demo/src doesn't exist</span>
+      .js
+        <span class="font-bold text-red">/Users/serverless/demo/src.js doesn't exist</span>
+      .json
+        <span class="font-bold text-red">/Users/serverless/demo/src.json doesn't exist</span>
+      .wasm
+        <span class="font-bold text-red">/Users/serverless/demo/src.wasm doesn't exist</span>
+      as directory
+        <span class="font-bold text-red">/Users/serverless/demo/src doesn't exist</span>
+
+webpack compiled with <span class="font-bold text-red">1 error</span> in 129 ms
+Serverless: <span class="text-yellow">Watching for changes...</span>
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │                                                                         │
+   │   GET | http://localhost:3000/hello                                     │
+   │   POST | http://localhost:3000/2015-03-31/functions/hello/invocations   │
+   │                                                                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+[HTTP] server ready: http://localhost:3000 🚀
+</pre>
+            </div>
+            <div>
+                <div class="terminal v3">
+                    <p>$ serverless offline &nbsp; <span class="text-gray"># Non-fatal error</span></p>
+                    <pre><span class="font-bold text-red">✖</span> Error in main
+  Module not found: Error: Can't resolve './src' in '/Users/serverless/demo'
+  resolve './src' in '/Users/serverless/demo'
+    using description file: /Users/serverless/demo/package.json (relative path: .)
+      using description file: /Users/serverless/demo/package.json (relative path: ./src)
+        no extension
+          /Users/serverless/demo/src doesn't exist
+        .js
+          /Users/serverless/demo/src.js doesn't exist
+        .json
+          /Users/serverless/demo/src.json doesn't exist
+        .wasm
+          /Users/serverless/demo/src.wasm doesn't exist
+        as directory
+          /Users/serverless/demo/src doesn't exist
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │                                                                         │
+   │   GET | http://localhost:3000/hello                                     │
+   │   POST | http://localhost:3000/2015-03-31/functions/hello/invocations   │
+   │                                                                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+[HTTP] server ready: http://localhost:3000 🚀
+</pre>
+                </div>
+                <div class="terminal v3">
+                    <p>$ serverless offline &nbsp; <span class="text-gray"># Non-fatal error</span></p>
+                    <pre><span class="font-bold text-red">✖ Error in main</span>
+  Module not found: Error: Can't resolve './src' in '/Users/serverless/demo'
+  resolve './src' in '/Users/serverless/demo'
+    using description file: /Users/serverless/demo/package.json (relative path: .)
+      using description file: /Users/serverless/demo/package.json (relative path: ./src)
+        no extension
+          /Users/serverless/demo/src doesn't exist
+        .js
+          /Users/serverless/demo/src.js doesn't exist
+        .json
+          /Users/serverless/demo/src.json doesn't exist
+        .wasm
+          /Users/serverless/demo/src.wasm doesn't exist
+        as directory
+          /Users/serverless/demo/src doesn't exist
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │                                                                         │
+   │   GET | http://localhost:3000/hello                                     │
+   │   POST | http://localhost:3000/2015-03-31/functions/hello/invocations   │
+   │                                                                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+[HTTP] server ready: http://localhost:3000 🚀
+</pre>
+                </div>
+                <div class="terminal v3">
+                    <p>$ serverless offline &nbsp; <span class="text-gray"># Non-fatal error</span></p>
+                    <pre><span class="font-bold text-red">✖ Error in main</span><span class="text-gray">
+  Module not found: Error: Can't resolve './src' in '/Users/serverless/demo'
+  resolve './src' in '/Users/serverless/demo'
+    using description file: /Users/serverless/demo/package.json (relative path: .)
+      using description file: /Users/serverless/demo/package.json (relative path: ./src)
+        no extension
+          /Users/serverless/demo/src doesn't exist
+        .js
+          /Users/serverless/demo/src.js doesn't exist
+        .json
+          /Users/serverless/demo/src.json doesn't exist
+        .wasm
+          /Users/serverless/demo/src.wasm doesn't exist
+        as directory
+          /Users/serverless/demo/src doesn't exist</span>
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │                                                                         │
+   │   GET | http://localhost:3000/hello                                     │
+   │   POST | http://localhost:3000/2015-03-31/functions/hello/invocations   │
+   │                                                                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+[HTTP] server ready: http://localhost:3000 🚀
+</pre>
+                </div>
             </div>
         </div>
 
