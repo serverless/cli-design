@@ -27,9 +27,14 @@
             <p>&nbsp;</p>
             <p>Deploying platform to stage dev</p>
             <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-red">✔</span>&nbsp; common &nbsp;<span class="text-gray">›</span> deployed &nbsp;<span class="text-gray">› 1s</span></p>
-            <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span>&nbsp; users &nbsp; <span class="text-gray">›</span> deploying <span class="text-gray">› 12s</span></p>
+            <p class="ml-5"><span class="text-red">✔</span>&nbsp; common &nbsp;<span class="text-gray">›</span> deployed <span class="text-gray">› 1s</span></p>
+            <p class="ml-5">
+                <span class="text-red">{{ frames[frame] }}</span>&nbsp; users &nbsp; <span class="text-gray">›</span>
+                Updating CloudFormation stack <span class="text-gray">(1/5) </span>
+                <span class="text-gray">› 12s</span>
+            </p>
             <p class="ml-5">&nbsp;&nbsp; billing <span class="text-gray">› waiting</span></p>
+            <p class="ml-5">&nbsp;&nbsp; reports <span class="text-gray">› waiting</span></p>
         </div>
 
         <div class="terminal mx-auto mt-4 mb-8">
@@ -40,6 +45,7 @@
             <p class="ml-5"><span class="text-red">✔</span>&nbsp; common &nbsp;<span class="text-gray">›</span> deployed <span class="text-gray">› 1s</span></p>
             <p class="ml-5"><span class="text-red">✔</span>&nbsp; users &nbsp; <span class="text-gray">›</span> deployed <span class="text-gray">› 14s</span></p>
             <p class="ml-5"><span class="text-red">✔</span>&nbsp; billing <span class="text-gray">›</span> deployed <span class="text-gray">› 33s</span></p>
+            <p class="ml-5">&nbsp;&nbsp; reports <span class="text-gray">› no changes › 1s</span></p>
             <p>&nbsp;</p>
             <p class="text-gray">common:</p>
             <p class="ml-5"><span class="text-gray">table:</span> platform-dev-table</p>
@@ -56,14 +62,14 @@
         <h2>Errors</h2>
 
         <div class="terminal mx-auto mt-4 mb-8">
-            <p>$ serverless deploy</p>
+            <p>$ serverless deploy <span class="text-gray"># init error</span></p>
             <p>&nbsp;</p>
             <p class="text-red">Error:</p>
             <p>Configuration error at 'app': should be a string.</p>
             <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-gray">0s ›</span> common <span class="text-gray">› skipped</span></p>
-            <p class="ml-5"><span class="text-gray">0s ›</span> users <span class="text-gray">›</span> deploy <span class="text-gray">› skipped</span></p>
-            <p class="ml-5"><span class="text-gray">0s ›</span> billing <span class="text-gray">› skipped</span></p>
+            <p class="ml-5">&nbsp;&nbsp; common <span class="text-gray">&nbsp;› skipped</span></p>
+            <p class="ml-5">&nbsp;&nbsp; users <span class="text-gray"> &nbsp; › skipped</span></p>
+            <p class="ml-5">&nbsp;&nbsp; billing <span class="text-gray">› skipped</span></p>
             <p>&nbsp;</p>
             <p class="text-red">✖ Deployment failed <span class="text-gray">(15s)</span></p>
         </div>
@@ -71,15 +77,17 @@
         <div class="terminal mx-auto mt-4 mb-8">
             <p>$ serverless deploy</p>
             <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-gray">1s ›</span> common <span class="text-gray">›</span> deployed</p>
-            <p class="ml-5 text-red">5s <span class="text-gray">›</span> users <span class="text-gray">›</span> deploy <span class="text-gray">›</span> error</p>
+            <p>Deploying platform to stage dev</p>
+            <p>&nbsp;</p>
+            <p class="ml-5"><span class="text-red">✔</span>&nbsp; common <span class="text-gray">›</span> deployed <span class="text-gray">› 1s</span></p>
+            <p class="ml-5 text-red"><span class="text-red">✖</span>&nbsp; users &nbsp;<span class="text-gray">›</span> error <span class="text-gray">› 13s</span></p>
             <p>&nbsp;</p>
             <p>UPDATE_FAILED: HelloLambdaFunction <span class="text-gray">(AWS::Lambda::Function)</span></p>
             <p>Resource handler returned message: "Value nodejs12.xa at 'runtime' failed to satisfy constraint: Member must satisfy enum value set: [java8, java11, nodejs10.x, nodejs12.x, python2.7, python3.6, python3.7, python3.8, dotnetcore2.1, go1.x, ruby2.5] or be a valid ARN.</p>
             <p>&nbsp;</p>
             <p class="text-gray">View the full error: https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn%3Aaws%3Acloudformation%3Aus-east-1%3A416566615250%3Astack%2Fmyapp-dev%2F8f271030-bbec-11eb-b27c-0a4ced5e22b5</p>
             <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-gray">0s ›</span> billing <span class="text-gray">› skipped</span></p>
+            <p class="ml-5">&nbsp;&nbsp; billing <span class="text-gray">› skipped</span></p>
             <p>&nbsp;</p>
             <p class="text-red">✖ Deployment failed <span class="text-gray">(15s)</span></p>
         </div>
@@ -89,9 +97,9 @@
         <div class="terminal mx-auto mt-4 mb-8">
             <p>$ serverless billing:deploy</p>
             <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-gray">33s ›</span> billing <span class="text-gray">›</span> deployed</p>
+            <p>Deploying billing to stage dev</p>
             <p>&nbsp;</p>
-            <p><span class="text-red">✔</span> Application platform deployed to stage dev <span class="text-gray">(45s)</span></p>
+            <p class="ml-5"><span class="text-red">✔</span>&nbsp; billing <span class="text-gray">›</span> deployed <span class="text-gray">› 33s</span></p>
             <p>&nbsp;</p>
             <p class="text-gray">billing:</p>
             <p class="ml-5"><span class="text-gray">endpoints:</span> https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
@@ -110,8 +118,8 @@
             <p><span class="text-gray">billing › 2021-11-16 12:24:34.271</span> INFO Invoice sent</p>
             <p><span class="text-gray">billing › END Duration: 5.58 ms	Memory used: 64 MB</span></p>
             <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span> &nbsp; users <span class="text-gray">›</span> logs</p>
-            <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span> &nbsp; billing <span class="text-gray">›</span> logs</p>
+            <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span>&nbsp; users &nbsp; <span class="text-gray">›</span> logs</p>
+            <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span>&nbsp; billing <span class="text-gray">›</span> logs</p>
         </div>
 
         <div class="terminal mx-auto mt-4 mb-8">
@@ -126,6 +134,8 @@
         <div class="terminal mx-auto mt-4 mb-8">
             <p>$ serverless deploy --verbose</p>
             <p>&nbsp;</p>
+            <p>Deploying platform to stage dev</p>
+            <p>&nbsp;</p>
             <p><span class="text-gray">common &nbsp;›</span> Deploying platform-common to stage dev (us-east-1)</p>
             <p><span class="text-gray">common &nbsp;›</span> Packaging</p>
             <p><span class="text-gray">common &nbsp;›</span> Uploading (50 KB)</p>
@@ -136,79 +146,86 @@
             <p><span class="text-gray">users &nbsp; ›</span> Uploading (222 KB)</p>
             <p><span class="text-gray">billing ›</span> Packaging</p>
             <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-gray">1s ›</span> common <span class="text-gray">›</span> deployed</p>
-            <p>&nbsp;</p>
-            <p><span class="text-red">{{ frames[frame] }}</span> &nbsp; Deploying platform to stage dev</p>
-            <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span> &nbsp; users <span class="text-gray">›</span> deploying</p>
-            <p class="ml-5"><span class="text-gray">…</span> &nbsp; billing <span class="text-gray">›</span> waiting</p>
+            <p class="ml-5"><span class="text-red">✔</span>&nbsp; common &nbsp;<span class="text-gray">›</span> deployed <span class="text-gray">› 1s</span></p>
+            <p class="ml-5">
+                <span class="text-red">{{ frames[frame] }}</span>&nbsp; users &nbsp; <span class="text-gray">›</span>
+                Uploading (222 KB)
+                <span class="text-gray">› 12s</span>
+            </p>
+            <p class="ml-5">
+                <span class="text-red">{{ frames[frame] }}</span>&nbsp; billing <span class="text-gray">›</span>
+                Packaging
+                <span class="text-gray">› 12s</span>
+            </p>
+            <p class="ml-5">&nbsp;&nbsp; reports <span class="text-gray">› waiting</span></p>
         </div>
 
         <hr class="border-gray-400 my-32">
 
         <h2>Former alternative approaches</h2>
+        <div>
+            <h3>A</h3>
+            <div class="terminal mx-auto mt-4 mb-8">
+                <p>$ serverless deploy</p>
+                <p>&nbsp;</p>
+                <p class="ml-5"><span class="text-gray">1s ›</span> common <span class="text-gray">›</span> deployed</p>
+                <p>&nbsp;</p>
+                <p><span class="text-red">{{ frames[frame] }}</span> &nbsp; Deploying platform to stage dev</p>
+                <p>&nbsp;</p>
+                <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span> &nbsp; users <span class="text-gray">›</span> deploying</p>
+                <p class="ml-5"><span class="text-gray">…</span> &nbsp; billing <span class="text-gray">›</span> waiting</p>
+            </div>
+            <div class="terminal mx-auto mt-4 mb-8">
+                <p>$ serverless deploy</p>
+                <p>&nbsp;</p>
+                <p class="ml-5"><span class="text-gray">1s ›</span> common <span class="text-gray">›</span> deployed</p>
+                <p class="ml-5"><span class="text-gray">12s ›</span> users <span class="text-gray">›</span> deployed</p>
+                <p class="ml-5"><span class="text-gray">33s ›</span> billing <span class="text-gray">›</span> deployed</p>
+                <p>&nbsp;</p>
+                <p><span class="text-red">✔</span> Application platform deployed to stage dev <span class="text-gray">(45s)</span></p>
+                <p>&nbsp;</p>
+                <p class="text-gray">common:</p>
+                <p class="ml-5"><span class="text-gray">table:</span> platform-dev-table</p>
+                <p class="text-gray">billing:</p>
+                <p class="ml-5"><span class="text-gray">endpoints:</span> https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="ml-5 text-gray">functions:</p>
+                <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
+                <p class="text-gray">users:</p>
+                <p class="ml-5"><span class="text-gray">endpoints:</span> https://cj051y1flg.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="ml-5 text-gray">functions:</p>
+                <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
+            </div>
 
-        <h3>A</h3>
-        <div class="terminal mx-auto mt-4 mb-8">
-            <p>$ serverless deploy</p>
-            <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-gray">1s ›</span> common <span class="text-gray">›</span> deployed</p>
-            <p>&nbsp;</p>
-            <p><span class="text-red">{{ frames[frame] }}</span> &nbsp; Deploying platform to stage dev</p>
-            <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-red">{{ frames[frame] }}</span> &nbsp; users <span class="text-gray">›</span> deploying</p>
-            <p class="ml-5"><span class="text-gray">…</span> &nbsp; billing <span class="text-gray">›</span> waiting</p>
-        </div>
-        <div class="terminal mx-auto mt-4 mb-8">
-            <p>$ serverless deploy</p>
-            <p>&nbsp;</p>
-            <p class="ml-5"><span class="text-gray">1s ›</span> common <span class="text-gray">›</span> deployed</p>
-            <p class="ml-5"><span class="text-gray">12s ›</span> users <span class="text-gray">›</span> deployed</p>
-            <p class="ml-5"><span class="text-gray">33s ›</span> billing <span class="text-gray">›</span> deployed</p>
-            <p>&nbsp;</p>
-            <p><span class="text-red">✔</span> Application platform deployed to stage dev <span class="text-gray">(45s)</span></p>
-            <p>&nbsp;</p>
-            <p class="text-gray">common:</p>
-            <p class="ml-5"><span class="text-gray">table:</span> platform-dev-table</p>
-            <p class="text-gray">billing:</p>
-            <p class="ml-5"><span class="text-gray">endpoints:</span> https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
-            <p class="ml-5 text-gray">functions:</p>
-            <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
-            <p class="text-gray">users:</p>
-            <p class="ml-5"><span class="text-gray">endpoints:</span> https://cj051y1flg.execute-api.us-east-1.amazonaws.com/</p>
-            <p class="ml-5 text-gray">functions:</p>
-            <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
-        </div>
-
-        <h3>B</h3>
-        <div class="terminal mx-auto mt-4 mb-8">
-            <p>$ serverless deploy</p>
-            <p>&nbsp;</p>
-            <p>Deploying platform to stage dev</p>
-            <p>&nbsp;</p>
-            <p><span class="text-gray">1s ›</span> common &nbsp;<span class="text-gray">›</span> deployed</p>
-            <p><span class="text-red">{{ frames[frame] }}</span> &nbsp;<span class="text-gray">›</span> users &nbsp; <span class="text-gray">›</span> deploying</p>
-            <p>&nbsp; &nbsp;<span class="text-gray">›</span> billing <span class="text-gray">› waiting</span></p>
-        </div>
-        <div class="terminal mx-auto mt-4 mb-8">
-            <p>$ serverless deploy</p>
-            <p>&nbsp;</p>
-            <p>Deploying platform to stage dev</p>
-            <p>&nbsp;</p>
-            <p><span class="text-gray">1s &nbsp;›</span> common &nbsp;<span class="text-gray">›</span> deployed</p>
-            <p><span class="text-gray">12s ›</span> users &nbsp; <span class="text-gray">›</span> deployed</p>
-            <p><span class="text-gray">33s ›</span> billing <span class="text-gray">›</span> deployed</p>
-            <p>&nbsp;</p>
-            <p class="text-gray">common:</p>
-            <p class="ml-5"><span class="text-gray">table:</span> platform-dev-table</p>
-            <p class="text-gray">billing:</p>
-            <p class="ml-5"><span class="text-gray">endpoints:</span> https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
-            <p class="ml-5 text-gray">functions:</p>
-            <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
-            <p class="text-gray">users:</p>
-            <p class="ml-5"><span class="text-gray">endpoints:</span> https://cj051y1flg.execute-api.us-east-1.amazonaws.com/</p>
-            <p class="ml-5 text-gray">functions:</p>
-            <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
+            <h3>B</h3>
+            <div class="terminal mx-auto mt-4 mb-8">
+                <p>$ serverless deploy</p>
+                <p>&nbsp;</p>
+                <p>Deploying platform to stage dev</p>
+                <p>&nbsp;</p>
+                <p><span class="text-gray">1s ›</span> common &nbsp;<span class="text-gray">›</span> deployed</p>
+                <p><span class="text-red">{{ frames[frame] }}</span> &nbsp;<span class="text-gray">›</span> users &nbsp; <span class="text-gray">›</span> deploying</p>
+                <p>&nbsp; &nbsp;<span class="text-gray">›</span> billing <span class="text-gray">› waiting</span></p>
+            </div>
+            <div class="terminal mx-auto mt-4 mb-8">
+                <p>$ serverless deploy</p>
+                <p>&nbsp;</p>
+                <p>Deploying platform to stage dev</p>
+                <p>&nbsp;</p>
+                <p><span class="text-gray">1s &nbsp;›</span> common &nbsp;<span class="text-gray">›</span> deployed</p>
+                <p><span class="text-gray">12s ›</span> users &nbsp; <span class="text-gray">›</span> deployed</p>
+                <p><span class="text-gray">33s ›</span> billing <span class="text-gray">›</span> deployed</p>
+                <p>&nbsp;</p>
+                <p class="text-gray">common:</p>
+                <p class="ml-5"><span class="text-gray">table:</span> platform-dev-table</p>
+                <p class="text-gray">billing:</p>
+                <p class="ml-5"><span class="text-gray">endpoints:</span> https://3fr81y9fpa.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="ml-5 text-gray">functions:</p>
+                <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
+                <p class="text-gray">users:</p>
+                <p class="ml-5"><span class="text-gray">endpoints:</span> https://cj051y1flg.execute-api.us-east-1.amazonaws.com/</p>
+                <p class="ml-5 text-gray">functions:</p>
+                <p class="ml-10"><span class="text-gray">index:</span> myapp-dev-index</p>
+            </div>
         </div>
 
     </div>
