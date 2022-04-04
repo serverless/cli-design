@@ -61,19 +61,51 @@
 
         <h2>Errors</h2>
 
+        <p>Initialization error:</p>
         <div class="terminal mx-auto mt-4 mb-8">
-            <p>$ serverless deploy <span class="text-gray"># init error</span></p>
+            <p>$ serverless deploy</p>
+            <p class="text-gray">Environment: darwin, node 17.4.0, compose 0.0.8</p>
+            <p class="text-gray">Docs: &nbsp; &nbsp; &nbsp;&nbsp; github.com/serverless/compose</p>
+            <p class="text-gray">Bugs: &nbsp; &nbsp; &nbsp;&nbsp; github.com/serverless/compose/issues</p>
             <p>&nbsp;</p>
             <p class="text-red">Error:</p>
-            <p>Configuration error at 'app': should be a string.</p>
+            <p>Configuration error at 'app': should be a string</p>
             <p>&nbsp;</p>
-            <p class="ml-5">&nbsp;&nbsp; common <span class="text-gray">&nbsp;› skipped</span></p>
-            <p class="ml-5">&nbsp;&nbsp; users <span class="text-gray"> &nbsp; › skipped</span></p>
-            <p class="ml-5">&nbsp;&nbsp; billing <span class="text-gray">› skipped</span></p>
-            <p>&nbsp;</p>
-            <p class="text-red">✖ Deployment failed <span class="text-gray">(15s)</span></p>
+            <p class="text-gray">Verbose logs are available in ".serverless/compose.log"</p>
         </div>
 
+        <p>Initialization programmer error:</p>
+        <div class="terminal mx-auto mt-4 mb-8">
+            <p>$ serverless deploy</p>
+            <p class="text-gray">Environment: darwin, node 17.4.0, compose 0.0.8</p>
+            <p class="text-gray">Docs: &nbsp; &nbsp; &nbsp;&nbsp; github.com/serverless/compose</p>
+            <p class="text-gray">Bugs: &nbsp; &nbsp; &nbsp;&nbsp; github.com/serverless/compose/issues</p>
+            <p>&nbsp;</p>
+            <p class="text-red">Error:</p>
+            <p>TypeError: Cannot read properties of undefined (reading 'logger')</p>
+            <p>&nbsp; at start (compose/src/ComponentsService.js:423:34)</p>
+            <p>&nbsp; at boot (compose/src/index.js:23:34)</p>
+            <p>&nbsp;</p>
+            <p class="text-gray">Verbose logs are available in ".serverless/compose.log"</p>
+        </div>
+
+        <p>In-progress error:</p>
+        <div class="terminal mx-auto mt-4 mb-8">
+            <p>$ serverless deploy</p>
+            <p>&nbsp;</p>
+            <p>Deploying platform to stage dev</p>
+            <p>&nbsp;</p>
+            <p class="ml-5"><span class="text-red">✔</span>&nbsp; common <span class="text-gray">›</span> deployed <span class="text-gray">› 1s</span></p>
+            <p class="ml-5 text-red"><span class="text-red">✖</span>&nbsp; users &nbsp;<span class="text-gray">›</span> error <span class="text-gray">› 13s</span></p>
+            <p>&nbsp;</p>
+            <p>Invalid region "eu-east-4"</p>
+            <p>&nbsp;</p>
+            <p class="ml-5">&nbsp;&nbsp; billing <span class="text-gray">› skipped</span></p>
+            <p>&nbsp;</p>
+            <p class="text-gray">Verbose logs are available in ".serverless/compose.log"</p>
+        </div>
+
+        <p>In-progress CloudFormation error:</p>
         <div class="terminal mx-auto mt-4 mb-8">
             <p>$ serverless deploy</p>
             <p>&nbsp;</p>
@@ -89,7 +121,50 @@
             <p>&nbsp;</p>
             <p class="ml-5">&nbsp;&nbsp; billing <span class="text-gray">› skipped</span></p>
             <p>&nbsp;</p>
-            <p class="text-red">✖ Deployment failed <span class="text-gray">(15s)</span></p>
+            <p class="text-gray">Verbose logs are available in ".serverless/compose.log"</p>
+        </div>
+
+        <p>In-progress programmer error. We cannot display the stack trace because it would be too verbose. Instead the detailed error is logged to the verbose output.</p>
+        <div class="terminal mx-auto mt-4 mb-8">
+            <p>$ serverless deploy</p>
+            <p>&nbsp;</p>
+            <p>Deploying platform to stage dev</p>
+            <p>&nbsp;</p>
+            <p class="ml-5"><span class="text-red">✔</span>&nbsp; common <span class="text-gray">›</span> deployed <span class="text-gray">› 1s</span></p>
+            <p class="ml-5 text-red"><span class="text-red">✖</span>&nbsp; users &nbsp;<span class="text-gray">›</span> error <span class="text-gray">› 13s</span></p>
+            <p>&nbsp;</p>
+            <p>TypeError: Cannot read properties of undefined (reading 'logger')</p>
+            <p>&nbsp;</p>
+            <p class="ml-5">&nbsp;&nbsp; billing <span class="text-gray">› skipped</span></p>
+            <p>&nbsp;</p>
+            <p class="text-gray">Verbose logs are available in ".serverless/compose.log"</p>
+        </div>
+
+        <p>Error not-in-progress:</p>
+        <div class="terminal mx-auto mt-4 mb-8">
+            <p>$ serverless info</p>
+            <p><span class="text-gray">users › START</span></p>
+            <p><span class="text-gray">billing › START</span></p>
+            <p><span class="text-gray">users › 2021-11-16 12:24:34.271</span> INFO Users created</p>
+            <p><span class="text-gray">users › END Duration: 2.56 ms (init: 178.34 ms)	Memory used: 64 MB</span></p>
+            <p><span class="text-gray">common › </span><span class="text-red">Error:</span> Invalid region "eu-east-4"</p>
+            <p><span class="text-gray">billing › 2021-11-16 12:24:34.271</span> INFO Invoice sent</p>
+            <p><span class="text-gray">billing › END Duration: 5.58 ms	Memory used: 64 MB</span></p>
+            <p>&nbsp;</p>
+            <p class="text-gray">Verbose logs are available in ".serverless/compose.log"</p>
+            <p>&nbsp;</p>
+            <p>$ serverless info <span class="text-gray"># multiline error message</span></p>
+            <p><span class="text-gray">users › START</span></p>
+            <p><span class="text-gray">billing › START</span></p>
+            <p><span class="text-gray">users › 2021-11-16 12:24:34.271</span> INFO Users created</p>
+            <p><span class="text-gray">users › END Duration: 2.56 ms (init: 178.34 ms)	Memory used: 64 MB</span></p>
+            <p><span class="text-gray">common › </span><span class="text-red">Error:</span> Invalid region "eu-east-4"</p>
+            <p><span class="text-gray">common ›</span></p>
+            <p><span class="text-gray">common › </span>Did you mean "eu-east-1"?</p>
+            <p><span class="text-gray">billing › 2021-11-16 12:24:34.271</span> INFO Invoice sent</p>
+            <p><span class="text-gray">billing › END Duration: 5.58 ms	Memory used: 64 MB</span></p>
+            <p>&nbsp;</p>
+            <p class="text-gray">Verbose logs are available in ".serverless/compose.log"</p>
         </div>
 
         <h2>Component-specific command</h2>
